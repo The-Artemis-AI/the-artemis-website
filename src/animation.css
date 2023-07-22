@@ -1,0 +1,35 @@
+.fade-in {
+    opacity: 0;
+    transition: opacity .5s ease-in;
+  }
+  
+  .fade-in.visible {
+    opacity: 1;
+  }
+
+  .slide-from-left {
+    opacity: 0;
+    transform: translateX(-100px);
+    transition: opacity .6s ease-in, transform 1s ease-in;
+  }
+  
+  .slide-from-left.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  
+  .slide-from-right {
+    opacity: 0;
+    transform: translateX(100px);
+    transition: opacity 1s ease-in, transform 1s ease-in;
+  }
+  
+  .slide-from-right.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+
+
+ 
+  

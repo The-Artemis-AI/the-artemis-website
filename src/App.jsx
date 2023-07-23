@@ -55,9 +55,12 @@ import university from "./assets/images/university.png"
 import government from "./assets/images/government.png"
 import privatecomp from "./assets/images/private.png"
 import locate from "./assets/map/locate.svg"
+import {BrowserRouter} from "react-router-dom"
+import {HashLink as Link} from "react-router-hash-link"
 
 
 function App() {
+
   const [circleClass, setCircleClass] = useState('rgb(171,143,64)')
   const [isVisible, setIsVisible] = useState(false);
   const [isLeftVisible, setIsLeftVisible] = useState(false);
@@ -87,7 +90,7 @@ function App() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const element = document.getElementById('my-element'); 
+      const element = document.getElementById('ourSolution'); 
 
       if (element) {
         const rect = element.getBoundingClientRect();
@@ -294,6 +297,7 @@ function App() {
   }
  
   return (
+    <BrowserRouter>
     <div className="mainContainer">
     <div className={`contactPop ${isContactFormVisible ? 'visibly': 'hidden'}`}>
     <div className={`firstPop `} id='firstPop' style={{ backgroundImage:`url(${ContactBg})`}}>
@@ -335,10 +339,10 @@ function App() {
         {isContactFormVisible ? `Close` : 'Contact Us'}
       </button>
     </div>
-    <div className="section1 section" style={{ backgroundImage:`url(${Section1})`}}>
-    <Header
+    <div className="section1 section" id="home" style={{ backgroundImage:`url(${Section1})`}}>
+    <Link to="#home" smooth><Header
         Logo ={logo}
-        />  
+        />  </Link>
     <div className="sectionContent sectionContent1">
         
         <div className="side">
@@ -368,7 +372,7 @@ function App() {
       </div> 
     
     </div>
-    <div className={`section2 section fade-in ${isVisible ? 'visible' : ''}`} id="my-element">
+    <div  className={`section2 section fade-in ${isVisible ? 'visible' : ''}`} id="ourSolution">
     <div className="sectionContent sectionContent2">
     <div className="sideContent">
     <div className=""><h4>WHO WE ARE</h4></div>
@@ -386,7 +390,7 @@ function App() {
      </div>
      
     </div>
-    <div className="section3 section" >
+    <div className="section3 section" id="section3">
     <div className="sectionContent sectionContent3">
     <div className="leftContent">
     <div><Imager ImageSource={circles} alt='Image'/></div>
@@ -409,7 +413,7 @@ function App() {
     
     </div>
 
-    <div className="section4 section" >
+    <div className="section4 section" id="ourServices" >
     <div className="sideTitle"><h2>OUR SERVICES</h2></div>
     <div className="sectionContent sectionContent4">
     <div className={`sideImage slide-from-right ${isRightVisible ? 'visible' : ''}`} id="right-element">
@@ -444,9 +448,9 @@ function App() {
 
     </div>
 
-    <div className="section5 section" style={{ backgroundImage:`url(${services})`}} >
+    <div className="section5 section" id="ourCustomers" style={{ backgroundImage:`url(${services})`}} >
       <div className="sectionContent sectionContent5">
-      <div className="title"><h4>OUR TARGET GROUP</h4></div>
+      <div className="title"><h4>OUR CUSTOMERS</h4></div>
       
       <div className="circularImages">
       <div className="circularImage1"><Imager ImageSource={government} alt="AI"/><div><h3>GOVERNMENTS</h3></div></div>
@@ -456,11 +460,11 @@ function App() {
     </div>
     </div>
 
-    <div className="section6 section"  >
+    <div className="section6 section" id="ourSuccess" >
       <div className="sectionContent sectionContent6">
       <div className="sideContent">
         <div><h4>OUR SUCCESS</h4></div>
-      <div><p>We are proud that we have done so far, and we are excited to see what the future holds. Webelieve that AI has the potential to chang the world, and we are committed to using our expertise to make a difference.</p></div>
+      <div><p>We are proud that we have done so far, and we are excited to see what the future holds. We believe that AI has the potential to chang the world, and we are committed to using our expertise to make a difference.</p></div>
       <div className="map" ><Imager ImageSource={curved2} alt="map"/></div> 
       <div className="country usa" onClick={handleSuccessChange1}><Imager ImageSource={england} alt="map"/></div>
       <div className="country rwanda" onClick={handleSuccessChange2}><Imager ImageSource={rwanda} alt="rwanda-location"/></div> 
@@ -478,10 +482,11 @@ function App() {
     </div>
     </div>
 
-    <div className="section7 section"  >
+    <div className="section7 section"  id="ourContact">
       <div className="sectionContent sectionContent7">
-     <div className="contactForm" style={{ backgroundImage:`url(${ContactBg})`}}>
-     <form>
+      
+     <div className="contactForm" >
+     <form style={{ backgroundImage:`url(${ContactBg})`}}>
      <div className='input'>
      <label> Name</label>
      <input type="text" placeholder="Enter your name" />
@@ -495,11 +500,11 @@ function App() {
      <input type="text" placeholder="Enter your name" />
      </div>
      <div className='input'>
-     <label> Company Name</label>
-     <input type="text" placeholder="" />
+     <label> Company</label>
+     <input type="text" placeholder="Your company name" />
      </div>
      <div className='input'>
-     <label> Message</label>
+     <label> Enquiry</label>
      <select >
      
      <option value="Help me build">Help me build</option>
@@ -509,6 +514,11 @@ function App() {
      </select>
      
      </div>
+     <div className='input'>
+     <label for="message"> Message</label>
+     <textarea id="formMessage" name="message" rows="4" cols="35"></textarea>
+     </div>
+
      <div className='input'>
      <button type='submit'>SEND</button>
      </div>
@@ -525,7 +535,7 @@ function App() {
      </div>
       </div>
     </div>
-    <div className="footer section" >
+    <div className="footer section" id="footer">
       <div className="sectionContent footerContent">
       <div className='footer-sec1'>
       <Imager ImageSource={logo2} alt="logo"/>
@@ -533,10 +543,10 @@ function App() {
       <p>The Artemis AI is a technology company taht builds AI software for clients worldwide</p>
       <div className='footer-links'>
       
-      <Imager ImageSource={facebookFooter} alt='facebook'/>
-      <Imager ImageSource={twitterFooter} alt='twitter'/>
-      <Imager ImageSource={youtube} alt='youtube'/>
-      <Imager ImageSource={linkedinFooter} alt='linkedin'/>
+      <a href=" https://www.facebook.com/profile.php?id=100094257786765"><Imager ImageSource={facebookFooter} alt='facebook'/></a>
+      <a href="https://twitter.com/TheArtemis_AI"><Imager ImageSource={twitterFooter} alt='twitter'/></a>
+      <a href="https://www.youtube.com/channel/UCc0h69ABvFtx2lqXLeB_3JQ"><Imager ImageSource={youtube} alt='youtube'/></a>
+      <a href="https://www.linkedin.com/company/the-artemis-ai/"><Imager ImageSource={linkedinFooter} alt='linkedin'/></a>
       </div>
       </div>
       <div className='footer-sec2'>
@@ -553,19 +563,11 @@ function App() {
       <a href="">Careers</a>
       <a href="">FAQ's</a>
       </div>
-      <div className='footer-sec4'>
-      <h4> Subscribe</h4>
-      <p>Get offers and stay up-to-date</p>
-      <div>
-      <form>
-      <input type='email' placeholder='Email address'/>
-      <button type='submit'>Subscribe</button>
-      </form>
-      </div>
-      </div>
+  
       </div>
     </div>
 </div>
+</BrowserRouter>
 
   )
 

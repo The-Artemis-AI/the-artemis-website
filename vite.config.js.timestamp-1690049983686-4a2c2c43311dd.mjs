@@ -3,7 +3,7 @@ import { defineConfig } from "file:///C:/Users/Angelo%20Christian/Desktop/Artemi
 import react from "file:///C:/Users/Angelo%20Christian/Desktop/Artemis-website/website/node_modules/@vitejs/plugin-react/dist/index.mjs";
 var vite_config_default = defineConfig({
   plugins: [react()],
-  base: "/the-artemis-website/"
+  // base: "/the-artemis-website/"
 });
 export {
   vite_config_default as default

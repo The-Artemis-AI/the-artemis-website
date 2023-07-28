@@ -3,7 +3,11 @@ import './App.css'
 import './animation.css'
 import logo from "./assets/images/logo.svg"
 import Header from "./components/Header.jsx"
+import Form from "./components/Form.jsx"
 import MapComponent from "./components/MapComponent.jsx"
+import CalendlyLink  from "./components/CalendlyLink.jsx";
+import CalendlyInlineWidget  from "./components/CalendlyInlineWidget.jsx";
+import SuccessCard  from "./components/SuccessCard.jsx";
 import Stick from "./components/Stick.jsx"
 import Section1 from "./assets/Group-back.png"
 import Imager from "./components/Image.jsx"
@@ -45,9 +49,11 @@ import augius from "./assets/map/augius2.jpg"
 import FooterBg from "./assets/images/footer-bg.svg"
 import linkedinFooter from "./assets/images/linkedin-footer.svg"
 import facebookFooter from "./assets/images/facebook-footer.svg"
+import linkedinWhite from "./assets/images/linkedin-white.svg"
 import youtube from "./assets/images/youtube1.svg"
 import twitterFooter from "./assets/images/twitter-3.svg"
 import ContactBg from "./assets/images/contact-bg.svg"
+import pattern1 from "./assets/images/pattern1.jpg"
 import ContactMap from "./assets/images/contact-map.svg"
 import logo2 from "./assets/images/logo-trans.svg"
 import revolution from "./assets/images/4threv.png"
@@ -57,6 +63,7 @@ import privatecomp from "./assets/images/private.png"
 import locate from "./assets/map/locate.svg"
 import {BrowserRouter} from "react-router-dom"
 import {HashLink as Link} from "react-router-hash-link"
+
 
 
 function App() {
@@ -202,15 +209,6 @@ function App() {
     `})
   }
 
-  const contactBtn = document.getElementById('secondPop')
-  const contactForm = document.getElementById('firstPop')
-
-
-  const [isContactFormVisible, setContactFormVisible] = useState(false);
-
-  const handleContactPop2 = () => {
-    setContactFormVisible(!isContactFormVisible);
-  };
 
 
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -219,35 +217,59 @@ function App() {
     {
       image: manchester,
       title: "University of Manchester, UK",
-      content: "conduct a wide scale landscape assessment of the state of NLP with respect to SDGs and ethical practices related to data collection and application of open source projects.",
+      content: "Conducted a wide scale landscape assessment of the state of NLP with respect to SDGs and ethical practices related to data collection and application of open source projects.",
     },
     {
       image: oxford,
       title: "University of Oxford, UK",
-      content: "conduct a thorough mapping of the AI, Digitization and the impact of big data technology in African countries with respect to SDG.",
+      content: "Conducted a thorough mapping of the AI, Digitization and the impact of big data technology in African countries with respect to SDG.",
     },
     {
       image: augius,
       title:"Augius",
       content:'AI Powered HR management software that helps get the work done based on the available personnel supply and machine learning based demand prediction'
+    },
+    {
+      image: Apiday2,
+      title:"Apiday",
+      content:'AI Powered customer support software that helped them provide 24/7 customer support. This helped them build strong customer loyalty. '
+    },
+    {
+      image: cmu,
+      title:"Carnegie Mellon University, US",
+      content:'Developed and deployed AI courses for students that wish to build their careers in AI.'
+      
+    },
+    {
+      image: minict,
+      title:"Ministry of ICT, Rwanda",
+      content:'Built Data processing pipelines to turn data into insights with the intention of processing 1500+ citizens with the goal of changing recycling habits in Rwanda'
     }
     
   ];
 
+
   useEffect(() => {
-    
-    const nextSlide = () => {
+    // Function to change the slide every 2 seconds
+    const interval = setInterval(() => {
       setCurrentSlide((prevSlide) => (prevSlide + 1) % slideshowContent.length);
-    };
+    }, 5000);
 
-    // Start the slideshow timer
-    const interval = setInterval(nextSlide, 1500); // Change slide every 3 seconds (3000 milliseconds)
-
-    // Clean up the timer when the component unmounts
+    // Cleanup function to clear the interval when the component unmounts
     return () => clearInterval(interval);
-  }, []); 
+  }, [slideshowContent.length]);
+
+  const handlePrevSlide = () => {
+    setCurrentSlide((prevSlide) => (prevSlide - 1 + slideshowContent.length) % slideshowContent.length);
+  };
+
+  const handleNextSlide = () => {
+    setCurrentSlide((prevSlide) => (prevSlide + 1) % slideshowContent.length);
+  };
 
 
+  
+ 
 
 
   const [success, setSuccess] = useState(
@@ -299,60 +321,23 @@ function App() {
   return (
     <BrowserRouter>
     <div className="mainContainer">
-    <div className={`contactPop ${isContactFormVisible ? 'visibly': 'hidden'}`}>
-    <div className={`firstPop `} id='firstPop' style={{ backgroundImage:`url(${ContactBg})`}}>
-      <form>
-        <div className='input'>
-          <label> Name:</label>
-          <input type="text" placeholder="Enter your name" />
-        </div>
-        <div className='input'>
-          <label> Email:</label>
-          <input type="email" placeholder="Enter your email" />
-        </div>
-        <div className='input'>
-          <label> Phone:</label>
-          <input type="text" placeholder="Enter your name" />
-        </div>
-        <div className='input'>
-          <label> Company:</label>
-          <input type="text" placeholder="Your company name" />
-        </div>
-        <div className='input'>
-          <label> Message:</label>
-          <select >
-            <option value="Help me build">Help me build</option>
-            <option value="Talk to the team">Talk to the team</option>
-            <option value="Apply for a job">Apply for a job</option>
-            <option value="Other">Other</option>
-          </select>
-        </div>
-        <div className='input'>
-          <button type='submit'>SEND</button>
-        </div>
-      </form>
-    </div>
-    
-  </div>
-  <div className='secondPop'>
-      <button id='secondPop' onClick={handleContactPop2}>
-        {isContactFormVisible ? `Close` : 'Contact Us'}
-      </button>
-    </div>
+    <Form/>
+  
     <div className="section1 section" id="home" style={{ backgroundImage:`url(${Section1})`}}>
-    <Link to="#home" smooth><Header
+   <Header
         Logo ={logo}
-        />  </Link>
+        />  
     <div className="sectionContent sectionContent1">
         
         <div className="side">
         <div><h1>Building Your <br></br>AI <span>Ideas</span> Into Reality</h1></div>
         <div><p>We're an AI software development company that helps businessess solve complex problems with AI</p></div>
-
-        <button><div>LET US DISCUSS YOUR AI PROJECT </div><div className="arrow">&#8594;</div> </button>
+        
+        <Link to="#ourContact" smooth><button>LET'S DISCUSS YOUR AI PROJECTS<div className="arrow">&#8594;</div> </button></Link>
         </div>
-        <marquee direction='left' width="100%" height="200px">
+        
         <div className="partners">
+        <div className="slider">
         
         <div><Imager ImageSource={apiday} alt="Apiday"/></div>
         <div><Imager ImageSource={revolution} alt="revolution"/></div>
@@ -361,13 +346,15 @@ function App() {
         <div><Imager ImageSource={CMU} alt="Apiday"/></div>
         <div><Imager ImageSource={UOO} alt="Apiday"/></div>
         
-        
         </div>
-        </marquee>
+        </div>
+        
         <div className="links">
-        <div><Imager ImageSource={google} alt="google"/></div>
-        <div><Imager ImageSource={twitter} alt="twitter"/></div>
-        <div><Imager ImageSource={facebook} alt="facebook"/></div>
+        
+        <div><a href="https://twitter.com/TheArtemis_AI"><Imager ImageSource={twitter} alt="twitter"/></a></div>
+        <div><a href=" https://www.facebook.com/profile.php?id=100094257786765"><Imager ImageSource={facebook} alt="facebook"/></a></div>
+        <div><a href="https://www.linkedin.com/company/the-artemis-ai/"><Imager ImageSource={linkedinWhite} alt="linkedinWhite"/></a></div>
+        <a href="https://www.youtube.com/channel/UCc0h69ABvFtx2lqXLeB_3JQ"><Imager ImageSource={youtube} alt='youtube'/></a>
         </div>
       </div> 
     
@@ -453,10 +440,19 @@ function App() {
       <div className="title"><h4>OUR CUSTOMERS</h4></div>
       
       <div className="circularImages">
-      <div className="circularImage1"><Imager ImageSource={government} alt="AI"/><div><h3>GOVERNMENTS</h3></div></div>
-      <div className="circularImage2"><Imager ImageSource={privatecomp} alt="BlockChain"/><div><h3>PRIVATE COMPANIES</h3></div></div>
-      <div className="circularImage3"><Imager ImageSource={university} alt="Big Data"/><div><h3>ACADEMIA</h3></div></div>
-      </div>
+      <SuccessCard ImageSource={government}
+      title="GOVERNMENT"
+      details='We help governments organise data to produce accurate information that help in decison making'
+      />
+      <SuccessCard ImageSource={privatecomp}
+      title="PRIVATE COMPANIES"
+      details='We help governments organise data to produce accurate information that help in decison making'
+      />
+      <SuccessCard ImageSource={university}
+      title="ACADEMIA"
+      details='We help governments organise data to produce accurate information that help in decison making'
+      />
+       </div>
     </div>
     </div>
 
@@ -472,59 +468,44 @@ function App() {
       <div className="country france" onClick={handleSuccessChange4}><Imager ImageSource={france} alt="france-location"/></div> 
     </div>
     <div className="ourSuccess">
-    <div className="successImage"><Imager ImageSource={success[0].image} alt={success[0].title}/></div>
+    <div className="successImage"><Imager ImageSource={slideshowContent[currentSlide].image} alt={slideshowContent[currentSlide].title}/></div>
     <div className="successContent">
 
-    <h4>{success[0].title}</h4>
+    <h4>{slideshowContent[currentSlide].title}</h4>
     
-    <p>{success[0].content}</p>
-    </div></div>
+    <p>{slideshowContent[currentSlide].content}</p>
+
+    
+    </div>
+    <hr></hr>
+    <div className="navigation">
+      <div className="indicators">
+        <p>
+          Slide {currentSlide + 1} of {slideshowContent.length}
+        </p>
+      </div>
+
+      
+      <div className="buttons">
+        <button onClick={handlePrevSlide} disabled={currentSlide === 0}>
+          Prev
+        </button>
+        <button onClick={handleNextSlide} disabled={currentSlide === slideshowContent.length - 1}>
+          Next
+        </button>
+      </div></div>
+    
+    </div>
     </div>
     </div>
 
-    <div className="section7 section"  id="ourContact">
+    <div className="section7 section"  id="ourContact" style={{ backgroundImage:`url(${services})`}}>
       <div className="sectionContent sectionContent7">
       
-     <div className="contactForm" >
-     <form style={{ backgroundImage:`url(${ContactBg})`}}>
-     <div className='input'>
-     <label> Name</label>
-     <input type="text" placeholder="Enter your name" />
-     </div>
-     <div className='input'>
-     <label> Email</label>
-     <input type="email" placeholder="Enter your email" />
-     </div>
-     <div className='input'>
-     <label> Phone</label>
-     <input type="text" placeholder="Enter your name" />
-     </div>
-     <div className='input'>
-     <label> Company</label>
-     <input type="text" placeholder="Your company name" />
-     </div>
-     <div className='input'>
-     <label> Enquiry</label>
-     <select >
-     
-     <option value="Help me build">Help me build</option>
-     <option value="Talk to the team">Talk to the team</option>
-     <option value="pply for a job">Apply for a job</option>
-     <option value="Other">Other</option>
-     </select>
-     
-     </div>
-     <div className='input'>
-     <label for="message"> Message</label>
-     <textarea id="formMessage" name="message" rows="4" cols="35"></textarea>
-     </div>
+    <div className="calendlyForm">
+      <CalendlyInlineWidget /></div>
 
-     <div className='input'>
-     <button type='submit'>SEND</button>
-     </div>
-     </form>
-     </div>
-     <div className='location'>
+       <div className='location'>
      <div className='locSect1'>
      <Imager ImageSource={locate}/>
      <h5>LOCATION</h5>
@@ -540,7 +521,7 @@ function App() {
       <div className='footer-sec1'>
       <Imager ImageSource={logo2} alt="logo"/>
       
-      <p>The Artemis AI is a technology company taht builds AI software for clients worldwide</p>
+      <p>The Artemis AI is a technology company that builds AI software for clients worldwide</p>
       <div className='footer-links'>
       
       <a href=" https://www.facebook.com/profile.php?id=100094257786765"><Imager ImageSource={facebookFooter} alt='facebook'/></a>
@@ -550,19 +531,20 @@ function App() {
       </div>
       </div>
       <div className='footer-sec2'>
-      <a href="">Meet The Hunters</a>
-      <a href="">Features</a>
-      <a href="">Services</a>
-      <a href="">Testimonial</a>
-      <a href="">Blog</a>
+      <a href="">Home</a>
+      <a href="">Our Solution</a>
+      <a href="">Our Services</a>
+      <a href="">Our Customers</a>
+      <a href="">Our Success</a>
       </div>
       <div className='footer-sec3'>
-      <a href=".contactForm">Contact Us</a>
-      <a href="">terms of Service</a>
-      <a href="">Privacy</a>
-      <a href="">Careers</a>
-      <a href="">FAQ's</a>
+      <a href="">Quick  Contacts</a>
+      <a href="">Email:  team@theartemisai.com</a>
+      <a href="">Tel:  +250786866503</a>
+      <a href="">location:  KG 622 St, Kigali</a>
+      <a href=""></a>
       </div>
+      
   
       </div>
     </div>

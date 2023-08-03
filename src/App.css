@@ -655,7 +655,7 @@ transition:.5s;
   width:100%;
   height:100%;
   background:rgb(171, 143, 64);
-  display:none;
+  display:flex;
   flex-direction:column;
   padding:0 10px;
   gap:5px;
@@ -663,6 +663,7 @@ transition:.5s;
   justify-content:center;
   color:white;
   font-size:.9em;
+  transition:.4s;
 }
 
 @keyframes anime {
@@ -1625,10 +1626,10 @@ button:hover {
 }
 
 @media only screen and (max-width: 450px) {
-  body {
+  /* body {
 
     overflow-x: hidden;
- }
+ } */
   .logo {
     width: 40%;
     margin-left:20px;
@@ -1637,9 +1638,12 @@ button:hover {
     /* min-height:70vh */
   }
   .sectionContent {
-    width: 90vw;
+    width: 90%;
     padding: 10px ;
     margin: 10px auto;
+  }
+  .sectionContent1 {
+    overflow-x:hidden;
   }
   .side{
     width: 100%;
@@ -1655,6 +1659,8 @@ button:hover {
   }
   .side h1 {
     font-size: 1.5em;
+  }
+  .partners{
   }
   .partners img{
     height:60px;
@@ -1732,7 +1738,12 @@ button:hover {
   background:black;
   width:150px;
   height:150px;
+}
+.content-img .text{
   
+  gap:2px;
+  font-size:.5em;
+  transition:.4s;
 }
 
 .sectionContent6 .sideContent {
@@ -1743,10 +1754,8 @@ button:hover {
   position: static;
   margin:auto;
   width: 80%;
-  
 }
 .successContent {
-  
   background: rgb(32, 18, 1);
   color: white;
   height: 70%;

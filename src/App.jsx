@@ -387,16 +387,11 @@ const text = document.getElementById('text')
 
 const changeContent1 = ()=>{
   
-  if(text.style.display === "none"){
     text.style.display = "flex"
     setTextChange({
       heading: "ACADEMIA",
       content: "We help have helped universities analyse data, prepare study content and "
-    })
-    
-  }
- 
-  
+    }) 
 }
 const changeContent2 = ()=>{
   

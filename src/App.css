@@ -38,7 +38,7 @@ a {
   display: flex;
   gap: 70px;
   justify-content: space-between;
-  color: rgba(255, 255, 255, 4);
+  
   /* position: fixed; */
   top: 0;
   width:100vw;
@@ -88,6 +88,25 @@ a {
   text-decoration: none;
   font-size: 1em;
 }
+.headerContainer ul li:hover {
+  color:white;
+}
+
+
+.headerContainer ul li::after {
+  content: "";
+  width: 120%;
+  margin:3px auto;
+  display:block;
+  height:3px;
+  background-color:rgba(255, 255, 255, 4);
+  transform:scaleX(0);
+  transform-origin:left;
+  transition:transform 0.3s ease;
+}
+.headerContainer ul li:hover::after {
+  transform:scaleX(1);
+}
 .headerContainer ul li::before {
   content: "  ";
   width: 10%;
@@ -125,10 +144,11 @@ a {
   text-align: center;
 }
 .burger-content {
-  padding: 30px 10px;
+  padding: 20px 10px;
   display: none;
   flex-direction:column;
   width:85%;
+  height:auto;
   margin-left:5%;
   background:rgb(32, 18, 1);
   position:absolute;
@@ -139,12 +159,13 @@ a {
   display:flex;
   flex-direction:column;
   transform: translateY(0%);
-  gap: 5px;
+  gap: 0px;
   
 }
  .burger-content ul li{
-  padding:20px 0 20px 20px;
+  padding:3px 0 5px 20px;
   transition:.4s;
+  margin:-10px 0;
   
 }
 .b-active{
@@ -153,15 +174,15 @@ a {
 .hide{
   display:none;
 }
- .burger-content ul li:hover{
+ .burger-content ul li a:hover{
   background:rgb(191, 143, 64);;
   transform:scale(1.05)
 }
  
 
 .burger-content ul li a {
-  padding: 7px 20px;
-  border-radius: 40px;
+  padding: 2px 10px;
+  /* border-radius: 40px; */
   box-sizing: border-box;
   color:white;
 
@@ -461,8 +482,8 @@ a {
   }
 }
 .sectionContent5 {
-  /* width:100%; */
-  height: 50%;
+
+  height: 60%;
   display: flex;
   flex-direction: column;
 }
@@ -483,7 +504,7 @@ a {
   /* border:1px solid white; */
   /* border-radius:50%; */
   padding: 10px;
-  filter: contrast(0);
+  filter: contrast(0) sepia(1);
   filter: drop-shadow(4px 4px 6px solid white);
 }
 
@@ -535,6 +556,137 @@ a {
   transform:translateY(0%)
 }
 
+/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+.section5{
+  /* height:100vh; */
+  padding-bottom:50px;
+}
+.circularImages{
+  width: 400px;
+  height:400px;
+  border:1px solid white;
+  border-radius:50%;
+  position:relative;
+}
+.orbit{
+  /* background:red; */
+  position:relative;
+  width:100%;
+  height:100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  cursor:pointer;
+  left:-50%;
+
+}
+.orbit .image{
+  animation:anime 30s linear infinite;
+  position:absolute;
+  width:100px;
+  height:100px;
+  border-radius:50%;
+  transition:.5s;
+  box-shadow:0 0 0 4px rgb(171, 143, 64),0 0 6px #201201;
+  transform:rotate(calc(360deg/5 * var(--i)));
+  border:1px  solid white;
+  transform-origin:250px;
+  z-index:20;
+  background:#201201;;
+  overflow:hidden;
+
+}
+
+.orbit .image img {
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+object-fit:cover;
+transform:rotate(calc(-360deg/5 * var(--i))); 
+transition:.5s;
+ 
+}
+.content{
+  position:absolute;
+  inset:0;
+  overflow:hidden;
+  border-radius:50%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  
+}
+
+
+.content::before{
+  content: '';
+  /* background-image: url('./assets/images/theartemisai1.png'); */
+  
+  position:absolute;
+  inset:60px;
+  border:4px solid transparent;
+  border-left:4px solid #2196f3;
+  border-right:4px solid white;
+  border-radius:50%;
+  animation: anime 5s linear infinite;
+  z-index:1;
+}
+
+.content-img{
+  border-radius:50%;
+  width:60%;
+  height:60%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  
+}
+.content-img .text{
+  transition:transform 0.2s ease-in-out;
+  width:100%;
+  height:100%;
+  background:rgb(171, 143, 64);
+  display:flex;
+  flex-direction:column;
+  padding:0 10px;
+  gap:5px;
+  align-items:center;
+  justify-content:center;
+  color:white;
+  font-size:.9em;
+}
+
+@keyframes anime {
+  0% {
+    rotate:0deg;
+  }
+
+  100% {
+    rotate:360deg;
+  }
+}
+@keyframes GFG {
+  0% {
+      transform: rotate(0deg) 
+          translateX(100px) rotate(0deg);
+  }
+
+  100% {
+      transform: rotate(-360deg) 
+          translateX(100px) rotate(360deg);
+  }
+}
+
+/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
 
 .sectionContent6 {
   display: flex;
@@ -563,7 +715,11 @@ a {
   width:100%;
   text-align:center;
   margin:5px;
-  transform:translateX(15%)
+
+}
+.navigation .indicators p{
+
+margin:auto;
 }
 .navigation .buttons{
   width:100%;
@@ -633,18 +789,16 @@ a {
   cursor: pointer;
 }
 .usa img {
-  transform: translate(40%, 240%);
+  transform: translate(110%, 330%);
 }
 .rwanda img {
-  transform: translate(500%, 340%);
+  transform: translate(470%, 300%);
 }
 .england img {
-  transform: translate(450%, 220%);
- 
-  z-index: 5;
+  transform: translate(450%,120%);
 }
 .france img {
-  transform: translate(520%, 220%);
+  transform: translate(520%, 150%);
 }
 
 .sectionContent6 .ourSuccess {
@@ -815,7 +969,8 @@ form textarea {
 .locSect1 {
   width:150px;
   height:150px;
-  padding: 20px 40px;
+  font-size:.8em;
+  padding: 20px 10px;
   color: white;
   background: rgb(32, 18, 1);
   text-align: center;
@@ -916,7 +1071,7 @@ form textarea {
 
 .contactPop {
   width: 350px;
-  height: 80vh;
+  height: 600px;
   position: fixed;
   right: 5%;
   bottom: 2%;
@@ -1043,7 +1198,33 @@ button:hover {
   background: #201201;
 }
 
-@media only screen and (max-width: 800px) {
+
+@media only screen and (max-width: 1000px) {
+
+.headerContainer {
+  /* background: rgb(171, 143, 64); */
+}
+.headerSide {
+  display: flex;
+  width: 70vw;
+
+}
+.headerContainer ul {
+  gap:-10px;
+
+}
+.headerContainer ul li {
+  font-size: .9em;
+  margin-right:-5px;
+}
+
+
+}
+
+@media only screen and (max-width: 850px) {
+  .headerContainer ul li::after {
+  display:none;
+}
   .headerSide {
     display: none;
   }
@@ -1139,14 +1320,14 @@ button:hover {
   .sectionContent5 {
     flex-direction: column;
     min-height:fit-content;
-    height:150vh;
+    /* height:150vh; */
   }
-  .sectionContent5 .circularImages {
-    /* flex-direction: column; */
+  /* .sectionContent5 .circularImages {
+    
     flex-wrap:wrap;
     width: 40%;
-  }
-  .section5{
+  } */
+  /* .section5{
     height:100%;
     background:red;
     
@@ -1163,7 +1344,7 @@ button:hover {
   }
   .circularImages {
     width: 60%;
-  }
+  } */
 
   .circularImages img {
     width: 120px;
@@ -1397,7 +1578,7 @@ button:hover {
   }
 
   .contactPop{
-    height:700px;
+    /* height:750px; */
   }
   .section4 {
     position: relative;
@@ -1415,9 +1596,37 @@ button:hover {
 }
 
 
+@media only screen and (max-width: 600px) {
+  .circularImages{
+  width: 250px;
+  height:250px;
+
+}
+
+.orbit .image{
+  width:60px;
+  height:60px;
+   transform-origin:150px;
+}
+
+.content::before{
+  /* inset:70px; */
+
+}
+.content-img{
+ width:40%;
+  height:40%;
+
+}
+.content-img .text{
+
+}
+
+}
+
 @media only screen and (max-width: 450px) {
   body {
-    /* color: red; */
+    overflow: hidden;
   }
   .logo {
     width: 40%;
@@ -1490,7 +1699,6 @@ button:hover {
 }
 .sectionContent4 .sideContent {
   width: 100%;
- /* background:red; */
   margin: 50px 10px;
 }
 .sectionContent4 .sideContent p {
@@ -1511,10 +1719,7 @@ button:hover {
   min-height:fit-content;
   height:auto;
 }
-.sectionContent5 .circularImages img {
-  width: 100px;
-  height: 100px;
-}
+
 .success-details{
   position:absolute;
   width:150px;
@@ -1575,18 +1780,22 @@ button:hover {
   min-height: 100vh;
   width:100vw;
   padding:40px 0 0 0;
-  /* margin:20px 0; */
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
 }
 .contactPop{
-    /* transform:translate(-120%,30%) */
     height:500px;
-    /* z-index:11; */
   }
   .firstPop{
     z-index:12;
   }
   .calendly-inline-widget{
-    margin-top:auto;
+    /* margin:10px 15px; */
     align-self:center;
+  }
+  .mapper{
+    /* margin:10px 15px; */
   }
 }

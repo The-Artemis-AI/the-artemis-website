@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState, useEffect, useRef} from 'react';
 import { HashLink as Link } from 'react-router-hash-link';
 
 function Header(props) {
@@ -7,6 +7,35 @@ function Header(props) {
   const handleBurgerClick = () => {
     setBurgerContentVisible((prevVisible) => !prevVisible);
   };
+
+  const burgerContent = document.getElementById("burger-content")
+
+  window.onclick = function(event) {
+    if (event.target == burgerContent) {
+      burgerContent.style.display = "none";
+    }
+  }
+  const burgerContentRef = useRef(null);
+  const handleBurgerClose = () => {
+    // Toggle the burgerContentVisible state only if it's currently visible
+    if (burgerContentVisible) {
+      setBurgerContentVisible(false);
+    }
+  };
+  useEffect(() => {
+    const handleOutsideClick = (event) => {
+      if (burgerContentRef.current && !burgerContentRef.current.contains(event.target)) {
+        setBurgerContentVisible(false);
+      }
+    };
+
+    window.addEventListener('click', handleOutsideClick);
+    return () => {
+      window.removeEventListener('click', handleOutsideClick);
+    };
+  }, []);
+
+
 
 
   const [isHeaderFixed, setIsHeaderFixed] = useState(false);
@@ -37,33 +66,33 @@ function Header(props) {
         <div className="burger-line"></div>
         <div className="burger-line"></div>
       </div>
-      <div className={`burger-content ${burgerContentVisible ? 'b-active' : 'hide'}`}>
+      <div className={`burger-content ${burgerContentVisible ? 'b-active' : 'hide'}`} id="burger-content">
         <ul>
           <li className={props.Linkclass || 'active'}>
-            <Link smooth to="#home">
+            <Link smooth to="#home" onClick={handleBurgerClose}>
               HOME
             </Link>
           </li>
           <hr />
           <li>
-            <Link smooth to="#ourSolution">
+            <Link smooth to="#ourSolution" onClick={handleBurgerClose}>
               ABOUT
             </Link>
           </li>
           <hr />
-          <li>
-            <Link smooth to="#ourServices">
+          <li onClick={handleBurgerClose}>
+            <Link smooth to="#ourServices" >
               SERVICES
             </Link>
           </li>
           <hr />
-          <li>
+          <li onClick={handleBurgerClose}>
             <Link smooth to="#ourSuccess">
               SUCCESS
             </Link>
           </li>
           <hr />
-          <li>
+          <li onClick={handleBurgerClose}>
             <Link smooth to="#ourContact">
               CONTACT
             </Link>

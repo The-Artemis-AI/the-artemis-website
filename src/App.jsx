@@ -18,6 +18,8 @@ import UOO from "./assets/images/UoO.svg"
 import Manchester from "./assets/images/manchester.svg"
 import Rwanda from "./assets/images/rdlogo.svg"
 import robot from "./assets/images/robot.svg"
+import artemis from "./assets/images/theartemisai1.png"
+import artemisbg from "./assets/images/theartemisai-bg.png"
 import facebook from "./assets/images/facebook-white.svg"
 import twitter from "./assets/images/twitter-white.svg"
 import google from "./assets/images/google-white.svg"
@@ -58,11 +60,15 @@ import ContactMap from "./assets/images/contact-map.svg"
 import logo2 from "./assets/images/logo-trans.svg"
 import revolution from "./assets/images/4threv.png"
 import university from "./assets/images/university.png"
-import government from "./assets/images/government.png"
+import government from "./assets/images/governmenta.png"
+import sme from "./assets/images/sme1.png"
 import privatecomp from "./assets/images/private.png"
+import tech from "./assets/images/tech1.png"
+import healthcare from "./assets/images/healthcare1.png"
 import locate from "./assets/map/locate.svg"
 import {BrowserRouter} from "react-router-dom"
 import {HashLink as Link} from "react-router-hash-link"
+import Slider from 'react-slick';
 
 
 
@@ -190,7 +196,7 @@ function App() {
       title:`Predictive Analytics`,
     content:`Stay ahead of the competition with our predictive analytics services. By analysing historical data and identifying patterns, our AI-driven models will enable you to make data-driven decisions and forecast future trends accurately.
     `})
-    circleClass4 = 'rgb(171,143,64)'
+    // circleClass4 = 'rgb(171,143,64)'
   }
   const handleServiceChange5 = ()=>{
     if(circleId5.style.backgroundColor != 'rgb(171,143,64)'){
@@ -211,6 +217,52 @@ function App() {
 
 
 
+  const [englandSlide, setEnglandSlide] = useState(0);
+
+  const englandSlideContent = [
+    {
+      image: manchester,
+      title: "University of Manchester, UK",
+      content: "Conducted a wide scale landscape assessment of the state of NLP with respect to SDGs and ethical practices related to data collection and application of open source projects.",
+    },
+    {
+      image: oxford,
+      title: "University of Oxford, UK",
+      content: "Conducted a thorough mapping of the AI, Digitization and the impact of big data technology in African countries with respect to SDG.",
+    },
+    {
+      image: augius,
+      title:"Augius",
+      content:'AI Powered HR management software that helps get the work done based on the available personnel supply and machine learning based demand prediction'
+    }
+   
+    
+  ];
+
+  
+  
+  useEffect(() => {
+    const englandInterval = setInterval(() => {
+      setEnglandSlide((prevSlide) => (prevSlide + 1) % englandSlideContent.length);
+    }, 5000);
+
+    return () => clearInterval(englandInterval);
+  }, [englandSlideContent.length]);
+
+  useEffect(() => {
+    // Update the success state with the new slide content whenever englandSlide changes
+    setSuccess([
+      {
+        image: englandSlideContent[englandSlide].image,
+        title: englandSlideContent[englandSlide].title,
+        content: englandSlideContent[englandSlide].content,
+      },
+    ]);
+  }, [englandSlide, englandSlideContent]);
+
+
+
+  /////////////////////////
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const slideshowContent = [
@@ -274,49 +326,127 @@ function App() {
 
   const [success, setSuccess] = useState(
     [{
-    image: Apiday2,
-    title:"Apiday",
-    content:'AI Powered customer support software that helped them provide 24/7 customer support. This helped them build strong customer loyalty. '
-  }]
+      image: englandSlideContent[0].image,
+      title: englandSlideContent[0].title,
+      content: englandSlideContent[0].content,
+     }]
   );
-  const handleSuccessChange1 = ()=>{ //UK
-
+  const handleSuccessChange1 = ()=>{ 
+  setEnglandSlide(0);
+    setEnglandSlide(0);z
     setSuccess( [{
       image: cmu,
       title:"Carnegie Mellon University, US",
-      content:'develop and deploy AI courses for students that wish to build their careers in AI.'
+      content:'Developed and deployed AI courses for students that wish to build their careers in AI.'
       
     }])
 
   }
   const handleSuccessChange2 = ()=>{
+    setEnglandSlide(1);
+
     setSuccess( [{
       image: minict,
       title:"Ministry of ICT, Rwanda",
       content:'Built Data processing pipelines to turn data into insights with the intention of processing 1500+ citizens with the goal of changing recycling habits in Rwanda'
     }])
   }
-  const handleSuccessChange3 = ()=>{
-    setSuccess( [
+  const handleSuccessChange3 = () => {
+
+    // Function to handle the automatic slideshow for the "England" section
+    setEnglandSlide((prevSlide) => (prevSlide + 1) % englandSlideContent.length);
+
+    // Update the success state with the new slide content
+    setSuccess([
       {
-      image: slideshowContent[currentSlide].image,
-      title:slideshowContent[currentSlide].title,
-      content:slideshowContent[currentSlide].content
-    },
-      {
-      image: oxford,
-      title:"University of Oxford, UK",
-      content:'conduct a thorough mapping of the AI, Digitization and the impact of big data technology in African countries with respect to SDG.'
-    },
-  ])
-  }
+        image: englandSlideContent[englandSlide].image,
+        title: englandSlideContent[englandSlide].title,
+        content: englandSlideContent[englandSlide].content,
+      },
+    ]);
+  };
   const handleSuccessChange4 = ()=>{
+    setEnglandSlide(2);
     setSuccess( [{
       image: Apiday2,
       title:"Apiday",
       content:'AI Powered customer support software that helped them provide 24/7 customer support. This helped them build strong customer loyalty. '
     }])
   }
+
+  const customStyle = [
+    {'--i': '1',},
+    {'--i': '2',},
+    {'--i': '3',},
+    {'--i': '4',},
+    {'--i': '5',}
+    
+  ];
+const [textChange, setTextChange]=useState({})
+const text = document.getElementById('text')
+
+const changeContent1 = ()=>{
+  
+  if(text.style.display === "none"){
+    text.style.display = "flex"
+    setTextChange({
+      heading: "ACADEMIA",
+      content: "We help have helped universities analyse data, prepare study content and "
+    })
+    
+  }
+ 
+  
+}
+const changeContent2 = ()=>{
+  
+  if(text.style.display === "none"){
+    setTextChange({
+      heading: "GOVERNMENTS",
+      content: "We help governments organise data to produce accurate information that help in decison making"
+    })
+    text.style.display = "flex"
+
+  }
+  
+}
+const changeContent3 = ()=>{
+  if(text.style.display === "none"){
+    setTextChange({
+      heading: "PUBLIC SECTOR",
+      content: "We work with small, medium and large companies to help increase there productivity through sells"
+    })
+    text.style.display = "flex"
+
+  }
+  
+}
+const changeContent4 = ()=>{
+  if(text.style.display === "none"){
+    text.style.display = "flex"
+    setTextChange({
+      heading: "HEALTH CARE",
+      content: "Our machine Learning algorithms have helped analyse medical reports and images with help of our state of the art pattern recognitions."
+    })
+    
+  }
+}
+const changeContent5 = ()=>{
+  if(text.style.display === "none"){
+    
+    setTextChange({
+      heading: "TECHNOLOGY",
+      content: "With our advanced data analytics, we create create and train algorithms that increase the accuracy of the inspection process."
+    })
+    text.style.display = "flex"
+  }
+}
+ 
+const handleMouseLeave = ()=>{
+  if(text.style.display === "flex"){
+    text.style.display = "none"
+  }
+}
  
   return (
     <BrowserRouter>
@@ -440,19 +570,26 @@ function App() {
       <div className="title"><h4>OUR CUSTOMERS</h4></div>
       
       <div className="circularImages">
-      <SuccessCard ImageSource={government}
-      title="GOVERNMENT"
-      details='We help governments organise data to produce accurate information that help in decison making'
-      />
-      <SuccessCard ImageSource={privatecomp}
-      title="PRIVATE COMPANIES"
-      details='We help governments organise data to produce accurate information that help in decison making'
-      />
-      <SuccessCard ImageSource={university}
-      title="ACADEMIA"
-      details='We help governments organise data to produce accurate information that help in decison making'
-      />
+      <div className="orbit">
+      <Imager ImageSource={university}   ImageClass='img1' style={customStyle[0]} onMouseOver={changeContent1} onMouseLeave={handleMouseLeave}/>
+      <Imager ImageSource={government}  ImageClass='img2' style={customStyle[1]} onMouseOver={changeContent2} onMouseLeave={handleMouseLeave}/>
+      <Imager ImageSource={privatecomp}  ImageClass='img3' style={customStyle[2]} onMouseOver={changeContent3} onMouseLeave={handleMouseLeave}/>
+      <Imager ImageSource={healthcare}  ImageClass='img4' style={customStyle[3]} onMouseOver={changeContent4} onMouseLeave={handleMouseLeave}/>
+      <Imager ImageSource={tech}  ImageClass='img5' style={customStyle[4]} onMouseOver={changeContent5} onMouseLeave={handleMouseLeave}/>
+      
+      </div>
+      <div className='content' >
+      <div className='content-img' style={{ backgroundImage:`url(${artemis})`}}>
+      <div className='text' id='text'>
+        <h3>{textChange.heading}</h3>
+        <p>{textChange.content}</p>
+      </div>
+      </div>
+      </div>
+      </div>
+
        </div>
+       <div>
     </div>
     </div>
 
@@ -468,32 +605,35 @@ function App() {
       <div className="country france" onClick={handleSuccessChange4}><Imager ImageSource={france} alt="france-location"/></div> 
     </div>
     <div className="ourSuccess">
-    <div className="successImage"><Imager ImageSource={slideshowContent[currentSlide].image} alt={slideshowContent[currentSlide].title}/></div>
+    <div className="successImage"><Imager ImageSource={slideshowContent[currentSlide].image} alt={success[0].title}/></div>
     <div className="successContent">
 
     <h4>{slideshowContent[currentSlide].title}</h4>
-    
     <p>{slideshowContent[currentSlide].content}</p>
-
-    
     </div>
     <hr></hr>
+    {/* Slideshow navigation */}
     <div className="navigation">
-      <div className="indicators">
-        <p>
-          Slide {currentSlide + 1} of {slideshowContent.length}
-        </p>
-      </div>
+    <div className="indicators">
+      <p>
+        Slide {currentSlide + 1} of {slideshowContent.length}
+      </p>
+    </div>
 
-      
+    {slideshowContent.length > 1 && (
       <div className="buttons">
         <button onClick={handlePrevSlide} disabled={currentSlide === 0}>
           Prev
         </button>
-        <button onClick={handleNextSlide} disabled={currentSlide === slideshowContent.length - 1}>
+        <button
+          onClick={handleNextSlide}
+          disabled={currentSlide === slideshowContent.length - 1}
+        >
           Next
         </button>
-      </div></div>
+      </div>
+    )}
+  </div>
     
     </div>
     </div>
@@ -509,8 +649,8 @@ function App() {
      <div className='locSect1'>
      <Imager ImageSource={locate}/>
      <h5>LOCATION</h5>
-     <h5>Kigali, RWANDA</h5>
-     <p>KG 622 St, Kigali</p>
+     <h5>Kigali, Rwanda </h5>
+     <p>Fairview Building</p>
      </div>
      <div className='mapper'><MapComponent/></div>
      </div>
@@ -531,18 +671,20 @@ function App() {
       </div>
       </div>
       <div className='footer-sec2'>
-      <a href="">Home</a>
-      <a href="">Our Solution</a>
-      <a href="">Our Services</a>
-      <a href="">Our Customers</a>
-      <a href="">Our Success</a>
+      <Link smooth to="#home" >HOME</Link>
+      <Link smooth to="#ourSolution" >Our Solution</Link>
+      <Link smooth to="#ourServices" >Our Services</Link>
+      <Link smooth to="#ourCustomers" >Our Customers</Link>
+      <Link smooth to="#ourSuccess" >Our Success</Link>
+       
+    
       </div>
       <div className='footer-sec3'>
-      <a href="">Quick  Contacts</a>
-      <a href="">Email:  team@theartemisai.com</a>
-      <a href="">Tel:  +250786866503</a>
-      <a href="">location:  KG 622 St, Kigali</a>
-      <a href=""></a>
+      <p >Quick  Contacts</p>
+      <p >Email:  team@theartemisai.com</p>
+      <p >Tel:  +250786866503</p>
+      <p >location:  KG 622 St, Kigali</p>
+      <p ></p>
       </div>
       
   

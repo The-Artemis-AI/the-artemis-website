@@ -1626,7 +1626,7 @@ button:hover {
 
 @media only screen and (max-width: 450px) {
   body {
-    overflow: hidden;
+    overflow-y: hidden;
   }
   .logo {
     width: 40%;

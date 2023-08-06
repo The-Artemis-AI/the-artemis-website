@@ -1821,7 +1821,7 @@ button:hover {
 .content-img .text{
   
   gap:2px;
-  font-size:.5em;
+  font-size:.42em;
   transition:.4s;
 }
 
@@ -1883,11 +1883,11 @@ button:hover {
   .calendly-inline-widget{
     margin:10px 15px;
     align-self:center;
-    margin-left:20px;
+    margin-left:10px;
   }
   .mapper{
     margin:10px 15px;
-    margin-left:20px;
+    margin-left:10px;
   }
 }
 

@@ -1,5 +1,9 @@
 import React, {useEffect,useState, useRef} from 'react'
+import Imager from "./Image.jsx"
 import ContactBg from "../assets/images/contact-bg.svg"
+import youtube from "../assets/images/youtube.svg"
+import message from "../assets/images/message.svg"
+import cancel from "../assets/images/xmark-solid.svg"
 import emailjs from "emailjs-com";
 import {ToastContainer, toast} from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
@@ -96,8 +100,9 @@ const Form = () => {
     
   </div>
   <div className='secondPop'>
+  
       <button id='secondPop' onClick={handleContactPop2}>
-        {isContactFormVisible ? `Close` : 'Contact Us'}
+        {isContactFormVisible ? <img src={cancel} alt='cancel'/> : <img src={message} alt="contact us"/>}
       </button>
     </div>
     <ToastContainer/>

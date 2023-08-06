@@ -18,6 +18,7 @@ import UOO from "./assets/images/UoO.svg"
 import Manchester from "./assets/images/manchester.svg"
 import Rwanda from "./assets/images/rdlogo.svg"
 import robot from "./assets/images/robot.svg"
+import robotpng from "./assets/images/robotpng.png"
 import artemis from "./assets/images/theartemisai1.png"
 import artemisbg from "./assets/images/theartemisai-bg.png"
 import facebook from "./assets/images/facebook-white.svg"
@@ -52,7 +53,10 @@ import FooterBg from "./assets/images/footer-bg.svg"
 import linkedinFooter from "./assets/images/linkedin-footer.svg"
 import facebookFooter from "./assets/images/facebook-footer.svg"
 import linkedinWhite from "./assets/images/linkedin-white.svg"
-import youtube from "./assets/images/youtube1.svg"
+import youtube1 from "./assets/images/youtube1.svg"
+import youtube from "./assets/images/youtube.svg"
+import cancel from "./assets/images/xmark-solid.svg"
+import message from "./assets/images/message.svg"
 import twitterFooter from "./assets/images/twitter-3.svg"
 import ContactBg from "./assets/images/contact-bg.svg"
 import pattern1 from "./assets/images/pattern1.jpg"
@@ -233,7 +237,7 @@ function App() {
     {
       image: augius,
       title:"Augius",
-      content:'AI Powered HR management software that helps get the work done based on the available personnel supply and machine learning based demand prediction'
+      content:'AI Powered HR management software that helps to do the job based on the supply of available staff and predicting demand based on machine learning.'
     }
    
     
@@ -279,7 +283,7 @@ function App() {
     {
       image: augius,
       title:"Augius",
-      content:'AI Powered HR management software that helps get the work done based on the available personnel supply and machine learning based demand prediction'
+      content:'AI Powered HR management software that helps to do the job based on the supply of available staff and predicting demand based on machine learning.'
     },
     {
       image: Apiday2,
@@ -289,7 +293,7 @@ function App() {
     {
       image: cmu,
       title:"Carnegie Mellon University, US",
-      content:'Developed and deployed AI courses for students that wish to build their careers in AI.'
+      content:'Developed and deployed AI courses for students who want to advance their careers in AI.'
       
     },
     {
@@ -386,63 +390,78 @@ const [textChange, setTextChange]=useState({})
 const text = document.getElementById('text')
 
 const changeContent1 = ()=>{
-  
-    text.style.display = "flex"
+  text.style.display = "flex"
+    
     setTextChange({
       heading: "ACADEMIA",
-      content: "We help have helped universities analyse data, prepare study content and "
+      content: "We develop AI-based educational tools, and creating innovative AI solutions for academic institutions."
     }) 
+    
 }
 const changeContent2 = ()=>{
-  
-  if(text.style.display === "none"){
+  text.style.display = "flex"
     setTextChange({
       heading: "GOVERNMENTS",
-      content: "We help governments organise data to produce accurate information that help in decison making"
+      content: "We collaborate with government agencies to develop AI solutions that enhance public services, optimize processes, and foster data-driven decision-making."
     })
-    text.style.display = "flex"
-
-  }
-  
+    
 }
+
 const changeContent3 = ()=>{
-  if(text.style.display === "none"){
+  text.style.display = "flex"
     setTextChange({
-      heading: "PUBLIC SECTOR",
-      content: "We work with small, medium and large companies to help increase there productivity through sells"
+      heading: "PRIVATE SECTOR",
+      content: "We work with small, medium and large companies by providing AI-powered solutions to address their specific needs."
     })
-    text.style.display = "flex"
+   
+ 
+}
 
-  }
-  
-}
-const changeContent4 = ()=>{
-  if(text.style.display === "none"){
-    text.style.display = "flex"
-    setTextChange({
-      heading: "HEALTH CARE",
-      content: "Our machine Learning algorithms have helped analyse medical reports and images with help of our state of the art pattern recognitions."
-    })
+// const changeContent4 = ()=>{
+//   if(text.style.display === "none"){
+//     text.style.display = "flex"
+//     setTextChange({
+//       heading: "HEALTH CARE",
+//       content: "Our machine Learning algorithms have helped analyse medical reports and images with help of our state of the art pattern recognitions."
+//     })
     
-  }
-}
-const changeContent5 = ()=>{
-  if(text.style.display === "none"){
+//   }
+// }
+// const changeContent5 = ()=>{
+//   if(text.style.display === "none"){
     
-    setTextChange({
-      heading: "TECHNOLOGY",
-      content: "With our advanced data analytics, we create create and train algorithms that increase the accuracy of the inspection process."
-    })
-    text.style.display = "flex"
-  }
-}
+//     setTextChange({
+//       heading: "TECHNOLOGY",
+//       content: "With our advanced data analytics, we create create and train algorithms that increase the accuracy of the inspection process."
+//     })
+//     text.style.display = "flex"
+//   }
+// }
  
 const handleMouseLeave = ()=>{
   if(text.style.display === "flex"){
     text.style.display = "none"
   }
 }
- 
+
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    // console.log(entry);
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
+    } else {
+      if (entry.target.classList.contains('show')) {
+        entry.target.classList.remove('show');
+      }
+    }
+  });
+});
+
+const hiddenElement = document.querySelectorAll('.section');
+hiddenElement.forEach((el) => observer.observe(el));
+
+
   return (
     <BrowserRouter>
     <div className="mainContainer">
@@ -456,7 +475,7 @@ const handleMouseLeave = ()=>{
         
         <div className="side">
         <div><h1>Building Your <br></br>AI <span>Ideas</span> Into Reality</h1></div>
-        <div><p>We're an AI software development company that helps businessess solve complex problems with AI</p></div>
+        <div><p>We're an AI software development company that helps businesses solve complex problems with AI</p></div>
         
         <Link to="#ourContact" smooth><button>LET'S DISCUSS YOUR AI PROJECTS<div className="arrow">&#8594;</div> </button></Link>
         </div>
@@ -478,7 +497,7 @@ const handleMouseLeave = ()=>{
         
         <div><a href="https://twitter.com/TheArtemis_AI"><Imager ImageSource={twitter} alt="twitter"/></a></div>
         <div><a href=" https://www.facebook.com/profile.php?id=100094257786765"><Imager ImageSource={facebook} alt="facebook"/></a></div>
-        <div><a href="https://www.linkedin.com/company/the-artemis-ai/"><Imager ImageSource={linkedinWhite} alt="linkedinWhite"/></a></div>
+        <div><a href="https://www.linkedin.com/company/the-artemis-ai/"><Imager ImageSource={linkedinWhite} alt="linkedin"/></a></div>
         <a href="https://www.youtube.com/channel/UCc0h69ABvFtx2lqXLeB_3JQ"><Imager ImageSource={youtube} alt='youtube'/></a>
         </div>
       </div> 
@@ -490,14 +509,14 @@ const handleMouseLeave = ()=>{
     <div className=""><h4>WHO WE ARE</h4></div>
     <div className=""><h2>WE ARE SOLUTION <br></br>HUNTERS</h2></div>
     <div className="sideParagraph">
-    <p>The Artemis AI is a technology company that builds AI software for cliesnts worldwide</p>
-    <p>Since inception, we have had the priviledge to serve different clients in various industries</p>
-    <p>To date, we have worked with governments, universities, private companies, and entreprenuers to bring their AI ideas into reality. These projects have been in the</p>
+    <p>The Artemis AI is a technology company that builds AI software for clients worldwide.</p>
+    <p>Since inception, we have had the privilege to serve different clients in various industries.</p>
+    <p>To date, we have worked with governments, universities, private companies, and entrepreneurs to bring their AI ideas into reality. </p>
     </div>
     </div>
      <div className="sideImage">
         <div className="sideImageOverlay"></div>
-            <Imager ImageSource={robot}/>
+            <Imager ImageSource={robotpng}/>
         </div>
      </div>
      
@@ -569,12 +588,10 @@ const handleMouseLeave = ()=>{
       <Imager ImageSource={university}   ImageClass='img1' style={customStyle[0]} onMouseOver={changeContent1} onMouseLeave={handleMouseLeave}/>
       <Imager ImageSource={government}  ImageClass='img2' style={customStyle[1]} onMouseOver={changeContent2} onMouseLeave={handleMouseLeave}/>
       <Imager ImageSource={privatecomp}  ImageClass='img3' style={customStyle[2]} onMouseOver={changeContent3} onMouseLeave={handleMouseLeave}/>
-      <Imager ImageSource={healthcare}  ImageClass='img4' style={customStyle[3]} onMouseOver={changeContent4} onMouseLeave={handleMouseLeave}/>
-      <Imager ImageSource={tech}  ImageClass='img5' style={customStyle[4]} onMouseOver={changeContent5} onMouseLeave={handleMouseLeave}/>
-      
+     
       </div>
       <div className='content' >
-      <div className='content-img' style={{ backgroundImage:`url(${artemis})`}}>
+      <div className='content-img' style={{ backgroundImage:`url(${artemisbg})`}}>
       <div className='text' id='text'>
         <h3>{textChange.heading}</h3>
         <p>{textChange.content}</p>
@@ -592,7 +609,7 @@ const handleMouseLeave = ()=>{
       <div className="sectionContent sectionContent6">
       <div className="sideContent">
         <div><h4>OUR SUCCESS</h4></div>
-      <div><p>We are proud that we have done so far, and we are excited to see what the future holds. We believe that AI has the potential to chang the world, and we are committed to using our expertise to make a difference.</p></div>
+      <div><p>We are proud of what we have accomplished thus far, and we are eager to see what the future holds. We believe in the power of artificial intelligence to change the world, and we are determined to use our expertise to make a difference.</p></div>
       <div className="map" ><Imager ImageSource={curved2} alt="map"/></div> 
       <div className="country usa" onClick={handleSuccessChange1}><Imager ImageSource={england} alt="map"/></div>
       <div className="country rwanda" onClick={handleSuccessChange2}><Imager ImageSource={rwanda} alt="rwanda-location"/></div> 
@@ -661,7 +678,7 @@ const handleMouseLeave = ()=>{
       
       <a href=" https://www.facebook.com/profile.php?id=100094257786765"><Imager ImageSource={facebookFooter} alt='facebook'/></a>
       <a href="https://twitter.com/TheArtemis_AI"><Imager ImageSource={twitterFooter} alt='twitter'/></a>
-      <a href="https://www.youtube.com/channel/UCc0h69ABvFtx2lqXLeB_3JQ"><Imager ImageSource={youtube} alt='youtube'/></a>
+      <a href="https://www.youtube.com/channel/UCc0h69ABvFtx2lqXLeB_3JQ"><Imager ImageSource={youtube1} alt='youtube'/></a>
       <a href="https://www.linkedin.com/company/the-artemis-ai/"><Imager ImageSource={linkedinFooter} alt='linkedin'/></a>
       </div>
       </div>
@@ -679,7 +696,7 @@ const handleMouseLeave = ()=>{
       <p >Email:  team@theartemisai.com</p>
       <p >Tel:  +250786866503</p>
       <p >location:  KG 622 St, Kigali</p>
-      <p ></p>
+      <p >Building: Fairview building</p>
       </div>
       
   

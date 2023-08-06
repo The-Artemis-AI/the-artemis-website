@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef} from 'react';
 import { HashLink as Link } from 'react-router-hash-link';
+import bars from "../assets/images/bars.svg"
+import cancelWhite from "../assets/images/cancel-white.svg"
 
 function Header(props) {
   const [burgerContentVisible, setBurgerContentVisible] = useState(false);
@@ -49,6 +51,7 @@ function Header(props) {
     setIsHeaderFixed(scrollY > headerHeight);
   };
 
+ 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
     return () => {
@@ -61,10 +64,8 @@ function Header(props) {
       <div className="logo">
       <Link to="#home" smooth><img src={props.Logo} alt="Artemis Logo" /></Link>
       </div>
-      <div className={`burger `} onClick={handleBurgerClick}>
-        <div className="burger-line"></div>
-        <div className="burger-line"></div>
-        <div className="burger-line"></div>
+      <div className={`burger `} onClick={handleBurgerClick} >
+      {burgerContentVisible ? <img src={cancelWhite} alt='burger menu'/> : <img src={bars} alt="close menu"/>}
       </div>
       <div className={`burger-content ${burgerContentVisible ? 'b-active' : 'hide'}`} id="burger-content">
         <ul>

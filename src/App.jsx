@@ -644,7 +644,7 @@ hiddenElement.forEach((el) => observer.observe(el));
           
           <div className="sideParagraph">
                 <p>{service.content}</p>
-                <button><div>LET US BUILD</div><div className="arrow">&#8594;</div> </button>
+                <Link to="#ourContact"><button ><div>LET US BUILD</div><div className="arrow">&#8594;</div> </button></Link>
           </div> 
           <div div><Stick
           onClick1={handleServiceChange1}

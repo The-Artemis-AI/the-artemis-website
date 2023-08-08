@@ -1,4 +1,4 @@
-import { useState,useEffect } from 'react'
+import { useState,useEffect, useRef } from 'react'
 import './App.css'
 import './animation.css'
 import logo from "./assets/images/logo.svg"
@@ -43,6 +43,7 @@ import usa from "./assets/map/usa.svg"
 import england from "./assets/map/america.png"
 import france from "./assets/map/france.png"
 import rwanda from "./assets/map/rwanda.svg"
+import wholeMap from "./assets/map/whole-map.svg"
 import cmu from "./assets/map/cmu2.png"
 import manchester from "./assets/map/manchester.gif"
 import manchester2 from "./assets/map/manchester2.png"
@@ -82,6 +83,62 @@ function App() {
   const [isVisible, setIsVisible] = useState(false);
   const [isLeftVisible, setIsLeftVisible] = useState(false);
   const [isRightVisible, setIsRightVisible] = useState(false);
+
+  function Slider() {
+    const sliderRef = useRef(null);
+  
+    useEffect(() => {
+      // Function to continuously slide the images to the left
+      const slideImages = () => {
+        const slider = sliderRef.current;
+        if (slider) {
+          const firstImage = slider.querySelector('div:first-child');
+          if (firstImage) {
+            const imageWidth = firstImage.offsetWidth + 40; // Including margins
+            slider.style.transition = 'none';
+            slider.style.transform = `translateX(-${imageWidth}px)`;
+  
+            // Reset the transition after a short delay to create a continuous loop
+            setTimeout(() => {
+              slider.style.transition = 'transform 5s linear';
+              slider.style.transform = 'translateX(0)';
+            }, 50);
+          }
+        }
+      };
+  
+      const interval = setInterval(slideImages, 5000); // Adjust the interval as needed (5 seconds in this example)
+  
+      return () => clearInterval(interval);
+    }, []);
+
+    return (
+    <div className="partners">
+      <div className="slider" ref={sliderRef}>
+        <div>
+          <Imager ImageSource={apiday} alt="Apiday" />
+        </div>
+        <div>
+          <Imager ImageSource={revolution} alt="revolution" />
+        </div>
+        <div>
+          <Imager ImageSource={Rwanda} alt="Apiday" />
+        </div>
+        <div>
+          <Imager ImageSource={Manchester} alt="Apiday" />
+        </div>
+        <div>
+          <Imager ImageSource={CMU} alt="Apiday" />
+        </div>
+        <div>
+          <Imager ImageSource={UOO} alt="Apiday" />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+
 
   useEffect(() => {
     const handleScrollMove = () => {
@@ -481,17 +538,48 @@ hiddenElement.forEach((el) => observer.observe(el));
         </div>
         
         <div className="partners">
-        <div className="slider">
-        
-        <div><Imager ImageSource={apiday} alt="Apiday"/></div>
-        <div><Imager ImageSource={revolution} alt="revolution"/></div>
-        <div><Imager ImageSource={Rwanda} alt="Apiday"/></div>
-        <div><Imager ImageSource={Manchester} alt="Apiday"/></div>
-        <div><Imager ImageSource={CMU} alt="Apiday"/></div>
-        <div><Imager ImageSource={UOO} alt="Apiday"/></div>
-        
+
+      <div className="slider">
+        <div>
+          <Imager ImageSource={apiday} alt="Apiday" />
+        </div>
+        <div>
+          <Imager ImageSource={revolution} alt="revolution" />
+        </div>
+        <div>
+          <Imager ImageSource={Rwanda} alt="Apiday" />
+        </div>
+        <div>
+          <Imager ImageSource={Manchester} alt="Apiday" />
+        </div>
+        <div>
+          <Imager ImageSource={CMU} alt="Apiday" />
+        </div>
+        <div>
+          <Imager ImageSource={UOO} alt="Apiday" />
+        </div>
+      
+      
+        <div>
+          <Imager ImageSource={apiday} alt="Apiday" />
+        </div>
+        <div>
+          <Imager ImageSource={revolution} alt="revolution" />
+        </div>
+        <div>
+          <Imager ImageSource={Rwanda} alt="Apiday" />
+        </div>
+        <div>
+          <Imager ImageSource={Manchester} alt="Apiday" />
+        </div>
+        <div>
+          <Imager ImageSource={CMU} alt="Apiday" />
+        </div>
+        <div>
+          <Imager ImageSource={UOO} alt="Apiday" />
         </div>
         </div>
+    </div>
         
         <div className="links">
         
@@ -610,11 +698,8 @@ hiddenElement.forEach((el) => observer.observe(el));
       <div className="sideContent">
         <div><h4>OUR SUCCESS</h4></div>
       <div><p>We are proud of what we have accomplished thus far, and we are eager to see what the future holds. We believe in the power of artificial intelligence to change the world, and we are determined to use our expertise to make a difference.</p></div>
-      <div className="map" ><Imager ImageSource={curved2} alt="map"/></div> 
-      <div className="country usa" onClick={handleSuccessChange1}><Imager ImageSource={england} alt="map"/></div>
-      <div className="country rwanda" onClick={handleSuccessChange2}><Imager ImageSource={rwanda} alt="rwanda-location"/></div> 
-      <div className="country england" onClick={handleSuccessChange3}><Imager ImageSource={usa} alt="england-location"/></div> 
-      <div className="country france" onClick={handleSuccessChange4}><Imager ImageSource={france} alt="france-location"/></div> 
+      <div className="map" ><Imager ImageSource={wholeMap} alt="map"/></div> 
+      
     </div>
     <div className="ourSuccess">
     <div className="successImage"><Imager ImageSource={slideshowContent[currentSlide].image} alt={success[0].title}/></div>

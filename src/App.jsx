@@ -661,14 +661,15 @@ hiddenElement.forEach((el) => observer.observe(el));
           /></div>   
       
     </div>
-    <div className="disk2"><Imager ImageSource={diskFlat} alt="image"/></div>
+   
     
  </div>
 
     </div>
 
     <div className="section5 section" id="ourCustomers" style={{ backgroundImage:`url(${services})`}} >
-      <div className="sectionContent sectionContent5">
+    <div className="disk2"><Imager ImageSource={diskFlat} alt="image"/></div> 
+    <div className="sectionContent sectionContent5">
       <div className="title"><h4>OUR CUSTOMERS</h4></div>
       
       <div className="circularImages">

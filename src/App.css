@@ -371,7 +371,7 @@ animation-play-state:pause;
   position: absolute;
   right: 45%;
   bottom: -70px;
-  z-index:10;
+  z-index:20;
 }
 
 .section4 {
@@ -479,13 +479,14 @@ animation-play-state:pause;
   top: 0px;
 }
 
-.disk2 img {
+
+.disk2 .image img {
   width: 150px;
   height: 150px;
   position: absolute;
-  right: 30%;
-  bottom: -70px;
-  z-index:10;
+  right: 25%;
+  top: -70px;
+  z-index:120;
 }
 
 .sectionContent5 .circular img {
@@ -1360,17 +1361,20 @@ button:hover {
   line-height: 1.6em;
 }
 
+.circle-lines button { 
+  margin: 5px 3px;
+}
+
   .circle-lines {
     display: flex;
     flex-direction: row;
-    margin: 0px;
+    margin: 1px;
     transform: translate(-27%, -130%);
   }
 
   .circle-lines .line {
     rotate: 90deg;
-    transform: translate(330%, 35%);
-    margin-right:0.5px;
+    transform: translate(600%, 35%);
   }
   .sectionContent4 .sideImage {
     width: 50%;
@@ -1770,7 +1774,7 @@ button:hover {
     margin-left: 50px ;
   }
  
-  
+/*   
   .section3 {
     height: 40vh;
     padding: 15px 0;
@@ -1792,7 +1796,7 @@ button:hover {
 .sectionContent3 .leftContent p {
   width: 80%;
   line-height: 1.6em;
-}
+} */
 .circle-lines {
   display: flex;
   flex-direction: row;

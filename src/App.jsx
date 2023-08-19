@@ -17,7 +17,6 @@ import CMU from "./assets/images/CMU.svg"
 import UOO from "./assets/images/UoO.svg"
 import Manchester from "./assets/images/manchester.svg"
 import Rwanda from "./assets/images/rdlogo.svg"
-import robot from "./assets/images/robot.svg"
 import robotpng from "./assets/images/robotpng.png"
 import artemis from "./assets/images/theartemisai1.png"
 import artemisbg from "./assets/images/theartemisai-bg.png"
@@ -30,46 +29,23 @@ import eye from "./assets/images/eye.svg"
 import circles from "./assets/images/circles.svg"
 import man from "./assets/images/man.svg"
 import services from "./assets/images/service-bg.svg"
-import circular from "./assets/images/circular.svg"
-import AI from "./assets/images/AI.svg"
-import bigData from "./assets/images/Bid-Data.svg"
-import BlockChain from "./assets/images/Block-Chain.svg"
-// import cloud from "./assets/images/cloud.svg"
-import Website from "./assets/images/Website.svg"
-import map from "./assets/images/map.svg"
-import curved1  from "./assets/map/curver1.png"
-import curved2 from "./assets/map/curver2.png"
-import usa from "./assets/map/usa.svg"
-import england from "./assets/map/america.png"
-import france from "./assets/map/france.png"
-import rwanda from "./assets/map/rwanda.svg"
 import wholeMap from "./assets/map/whole-map.svg"
 import cmu from "./assets/map/cmu2.png"
 import manchester from "./assets/map/manchester.gif"
-import manchester2 from "./assets/map/manchester2.png"
 import minict from "./assets/map/MINICT2.png"
 import oxford from "./assets/map/oxford2c.jpg"
 import augius from "./assets/map/augius2.jpg"
-import FooterBg from "./assets/images/footer-bg.svg"
 import linkedinFooter from "./assets/images/linkedin-footer.svg"
 import facebookFooter from "./assets/images/facebook-footer.svg"
 import linkedinWhite from "./assets/images/linkedin-white.svg"
 import youtube1 from "./assets/images/youtube1.svg"
 import youtube from "./assets/images/youtube.svg"
-import cancel from "./assets/images/xmark-solid.svg"
-import message from "./assets/images/message.svg"
 import twitterFooter from "./assets/images/twitter-3.svg"
-import ContactBg from "./assets/images/contact-bg.svg"
-import pattern1 from "./assets/images/pattern1.jpg"
-import ContactMap from "./assets/images/contact-map.svg"
 import logo2 from "./assets/images/logo-trans.svg"
 import revolution from "./assets/images/4threv.png"
 import university from "./assets/images/university.png"
 import government from "./assets/images/governmenta.png"
-import sme from "./assets/images/sme1.png"
 import privatecomp from "./assets/images/private.png"
-import tech from "./assets/images/tech1.png"
-import healthcare from "./assets/images/healthcare1.png"
 import locate from "./assets/map/locate.svg"
 import {BrowserRouter} from "react-router-dom"
 import {HashLink as Link} from "react-router-hash-link"
@@ -122,16 +98,16 @@ function App() {
           <Imager ImageSource={revolution} alt="revolution" />
         </div>
         <div>
-          <Imager ImageSource={Rwanda} alt="Apiday" />
+          <Imager ImageSource={Rwanda} alt="Rwanda Gov" />
         </div>
         <div>
-          <Imager ImageSource={Manchester} alt="Apiday" />
+          <Imager ImageSource={Manchester} alt="mancheste" />
         </div>
         <div>
-          <Imager ImageSource={CMU} alt="Apiday" />
+          <Imager ImageSource={CMU} alt="CMU" />
         </div>
         <div>
-          <Imager ImageSource={UOO} alt="Apiday" />
+          <Imager ImageSource={UOO} alt="Oxford" />
         </div>
       </div>
     </div>

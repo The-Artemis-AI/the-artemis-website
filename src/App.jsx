@@ -1,4 +1,4 @@
-import { useState,useEffect, useRef } from 'react'
+import { useState,useEffect, useRef, React } from 'react'
 import './App.css'
 import './animation.css'
 import logo from "./assets/images/logo.svg"
@@ -254,48 +254,48 @@ function App() {
 
 
 
-  const [englandSlide, setEnglandSlide] = useState(0);
+  // const [englandSlide, setEnglandSlide] = useState(0);
 
-  const englandSlideContent = [
-    {
-      image: manchester,
-      title: "University of Manchester, UK",
-      content: "Conducted a wide scale landscape assessment of the state of NLP with respect to SDGs and ethical practices related to data collection and application of open source projects.",
-    },
-    {
-      image: oxford,
-      title: "University of Oxford, UK",
-      content: "Conducted a thorough mapping of the AI, Digitization and the impact of big data technology in African countries with respect to SDG.",
-    },
-    {
-      image: augius,
-      title:"Augius",
-      content:'AI Powered HR management software that helps to do the job based on the supply of available staff and predicting demand based on machine learning.'
-    }
+  // const englandSlideContent = [
+  //   {
+  //     image: manchester,
+  //     title: "University of Manchester, UK",
+  //     content: "Conducted a wide scale landscape assessment of the state of NLP with respect to SDGs and ethical practices related to data collection and application of open source projects.",
+  //   },
+  //   {
+  //     image: oxford,
+  //     title: "University of Oxford, UK",
+  //     content: "Conducted a thorough mapping of the AI, Digitization and the impact of big data technology in African countries with respect to SDG.",
+  //   },
+  //   {
+  //     image: augius,
+  //     title:"Augius",
+  //     content:'AI Powered HR management software that helps to do the job based on the supply of available staff and predicting demand based on machine learning.'
+  //   }
    
     
-  ];
+  // ];
 
   
   
-  useEffect(() => {
-    const englandInterval = setInterval(() => {
-      setEnglandSlide((prevSlide) => (prevSlide + 1) % englandSlideContent.length);
-    }, 5000);
+  // useEffect(() => {
+  //   const englandInterval = setInterval(() => {
+  //     setEnglandSlide((prevSlide) => (prevSlide + 1) % englandSlideContent.length);
+  //   }, 5000);
 
-    return () => clearInterval(englandInterval);
-  }, [englandSlideContent.length]);
+  //   return () => clearInterval(englandInterval);
+  // }, [englandSlideContent.length]);
 
-  useEffect(() => {
-    // Update the success state with the new slide content whenever englandSlide changes
-    setSuccess([
-      {
-        image: englandSlideContent[englandSlide].image,
-        title: englandSlideContent[englandSlide].title,
-        content: englandSlideContent[englandSlide].content,
-      },
-    ]);
-  }, [englandSlide, englandSlideContent]);
+  // useEffect(() => {
+  //   // Update the success state with the new slide content whenever englandSlide changes
+  //   setSuccess([
+  //     {
+  //       image: englandSlideContent[englandSlide].image,
+  //       title: englandSlideContent[englandSlide].title,
+  //       content: englandSlideContent[englandSlide].content,
+  //     },
+  //   ]);
+  // }, [englandSlide, englandSlideContent]);
 
 
 
@@ -361,55 +361,7 @@ function App() {
  
 
 
-  const [success, setSuccess] = useState(
-    [{
-      image: englandSlideContent[0].image,
-      title: englandSlideContent[0].title,
-      content: englandSlideContent[0].content,
-     }]
-  );
-  const handleSuccessChange1 = ()=>{ 
-  setEnglandSlide(0);
-    setEnglandSlide(0);z
-    setSuccess( [{
-      image: cmu,
-      title:"Carnegie Mellon University, US",
-      content:'Developed and deployed AI courses for students that wish to build their careers in AI.'
-      
-    }])
 
-  }
-  const handleSuccessChange2 = ()=>{
-    setEnglandSlide(1);
-
-    setSuccess( [{
-      image: minict,
-      title:"Ministry of ICT, Rwanda",
-      content:'Built Data processing pipelines to turn data into insights with the intention of processing 1500+ citizens with the goal of changing recycling habits in Rwanda'
-    }])
-  }
-  const handleSuccessChange3 = () => {
-
-    // Function to handle the automatic slideshow for the "England" section
-    setEnglandSlide((prevSlide) => (prevSlide + 1) % englandSlideContent.length);
-
-    // Update the success state with the new slide content
-    setSuccess([
-      {
-        image: englandSlideContent[englandSlide].image,
-        title: englandSlideContent[englandSlide].title,
-        content: englandSlideContent[englandSlide].content,
-      },
-    ]);
-  };
-  const handleSuccessChange4 = ()=>{
-    setEnglandSlide(2);
-    setSuccess( [{
-      image: Apiday2,
-      title:"Apiday",
-      content:'AI Powered customer support software that helped them provide 24/7 customer support. This helped them build strong customer loyalty. '
-    }])
-  }
 
   const customStyle = [
     {'--i': '1',},
@@ -450,26 +402,6 @@ const changeContent3 = ()=>{
  
 }
 
-// const changeContent4 = ()=>{
-//   if(text.style.display === "none"){
-//     text.style.display = "flex"
-//     setTextChange({
-//       heading: "HEALTH CARE",
-//       content: "Our machine Learning algorithms have helped analyse medical reports and images with help of our state of the art pattern recognitions."
-//     })
-    
-//   }
-// }
-// const changeContent5 = ()=>{
-//   if(text.style.display === "none"){
-    
-//     setTextChange({
-//       heading: "TECHNOLOGY",
-//       content: "With our advanced data analytics, we create create and train algorithms that increase the accuracy of the inspection process."
-//     })
-//     text.style.display = "flex"
-//   }
-// }
  
 const handleMouseLeave = ()=>{
   if(text.style.display === "flex"){
@@ -483,11 +415,12 @@ const observer = new IntersectionObserver((entries) => {
     // console.log(entry);
     if (entry.isIntersecting) {
       entry.target.classList.add('show');
-    } else {
-      if (entry.target.classList.contains('show')) {
-        entry.target.classList.remove('show');
-      }
     }
+    //  else {
+    //   if (entry.target.classList.contains('show')) {
+    //     entry.target.classList.remove('show');
+    //   }
+    // }
   });
 });
 
@@ -536,24 +469,7 @@ hiddenElement.forEach((el) => observer.observe(el));
         </div>
       
       
-        <div>
-          <Imager ImageSource={apiday} alt="Apiday" />
-        </div>
-        <div>
-          <Imager ImageSource={revolution} alt="revolution" />
-        </div>
-        <div>
-          <Imager ImageSource={Rwanda} alt="Apiday" />
-        </div>
-        <div>
-          <Imager ImageSource={Manchester} alt="Apiday" />
-        </div>
-        <div>
-          <Imager ImageSource={CMU} alt="Apiday" />
-        </div>
-        <div>
-          <Imager ImageSource={UOO} alt="Apiday" />
-        </div>
+        
         </div>
     </div>
         
@@ -679,7 +595,7 @@ hiddenElement.forEach((el) => observer.observe(el));
       
     </div>
     <div className="ourSuccess">
-    <div className="successImage"><Imager ImageSource={slideshowContent[currentSlide].image} alt={success[0].title}/></div>
+    <div className="successImage"><Imager ImageSource={slideshowContent[currentSlide].image} alt={slideshowContent[currentSlide].title}/></div>
     <div className="successContent">
 
     <h4>{slideshowContent[currentSlide].title}</h4>
@@ -719,6 +635,15 @@ hiddenElement.forEach((el) => observer.observe(el));
     <div className="calendlyForm">
       <CalendlyInlineWidget /></div>
 
+       
+      </div>
+    </div>
+
+    <div className="section7 section"  id="ourLocation" style={{ backgroundImage:`url(${services})`}}>
+      <div className="sectionContent sectionContent7">
+      
+  
+
        <div className='location'>
      <div className='locSect1'>
      <Imager ImageSource={locate}/>
@@ -730,6 +655,7 @@ hiddenElement.forEach((el) => observer.observe(el));
      </div>
       </div>
     </div>
+    
     <div className="footer section" id="footer">
       <div className="sectionContent footerContent">
       <div className='footer-sec1'>

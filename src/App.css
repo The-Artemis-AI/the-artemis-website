@@ -247,17 +247,23 @@ a {
   overflow:hidden;
 }
 .slider{
-  width:calc(130px*12);
+ 
   display: flex;
   justify-content:space-around;
   gap:30px;
-  animation: scroll 20s linear infinite;
+  width:100%;
+ 
+  
+  /* animation: scroll 20s linear infinite; */
 }
 .slider img{
   /* margin: 0 20px; */
   width: 90px;
-  height:70px;
-  filter: contrast(0.6);
+  height:90px;
+  filter: contrast(0.9);
+  object-fit:contain;
+  /* aspect-ratio: 4/3; */
+  
 }
 
 .slider img:hover .slider{
@@ -265,14 +271,7 @@ animation-play-state:pause;
 }
 
 
-@keyframes scroll {
-  0%{
-    transform:translateX(0)
-  }
-  100%{
-    transform:translateX(calc(-130px*6))
-  }
-}
+
 
 .links {
   display: flex;
@@ -606,7 +605,7 @@ animation-play-state:pause;
 
 }
 .orbit .image{
-  animation:anime 30s linear infinite;
+  /* animation:anime 30s linear infinite; */
   position:absolute;
   width:100px;
   height:100px;
@@ -658,7 +657,7 @@ transition:.5s;
   border-left:4px solid #2196f3;
   border-right:4px solid white;
   border-radius:50%;
-  animation: anime 5s linear infinite;
+  /* animation: anime 5s linear infinite; */
   z-index:1;
 }
 
@@ -789,7 +788,7 @@ margin:auto;
   background-color: none;
   width: 40px;
   height: 50px;
-  animation-name: enlarge;
+ 
   cursor: pointer;
 }
 .usa img {
@@ -947,19 +946,40 @@ form textarea {
 }
 .sectionContent7{
   display:flex;
+  flex-direction:column;
   align-items:center;
-  height:100%;
+  height:100vh;
   gap:5px;
   width:80%;
 }
 .calendlyForm{
-  width:60%;
-  height:90%;
+  width:100%;
+  height:100%;
+  padding-top:20px;
+  
 }
 .calendly-inline-widget{
-  margin-top:30px;
-  min-width: 100%;
-   height: 90%
+  margin-top:10px;
+  min-width: 120%;
+   height:105%;
+   margin:auto;
+   transform:translateX(0%)
+}
+/* .calendly-inline-widget div{
+  
+  min-width: 120%;
+   height:105%;
+   
+} */
+
+#ourContact{
+  height:110vh;
+}
+#ourContact .sectionContent7{
+  
+}
+#ourLocation .sectionContent7{
+  padding-top:0px;
 }
 
 .location img {
@@ -971,11 +991,35 @@ form textarea {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  width: 60%;
+  width: 100%;
+  height:90%;
   position: relative;
-  /* align-items: end; */
+ transform:translate(0%,0%);
   justify-content: end;
+  align-items:end;
+  margin:auto;
+  
 }
+.mapper{
+  height:100%;
+  width:100%;
+}
+
+.mapComponent,.map-container , .map-container div, .map-container div iframe{
+  height: 100%;
+width: 100%;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+}
+
+.map-container div iframe{
+height: 90%;
+width: 90%;
+margin:auto;
+}
+
 
 .locSect1 {
   width:150px;
@@ -990,8 +1034,8 @@ form textarea {
   gap: 3px;
   border-radius: 20px;
   position: absolute;
-  right: 30%;
-  top: -25%;
+  right: 40%;
+  top: -5%;
 }
 
 .locSect1 img {
@@ -1002,10 +1046,7 @@ form textarea {
     height: 50px;
 }
 
-.map-container {
-  height: 80%;
-  width: 100%;
-}
+
 .footer {
   height: 60vh;
   background-color: rgb(250, 238, 255);
@@ -1290,6 +1331,76 @@ button:hover {
 }
 
 
+@media only screen and (max-width: 1024px) {
+  
+  .logo {
+    width: 40%;
+  }
+  .headerContainer ul {
+
+    gap: 30px;
+  
+  }
+  .partners{
+
+    transform: translateY(-30%)
+  }
+  .logo{
+    transform:translateX(0%)
+  }
+  .side{
+    width: 90%;
+    margin: 70px 40px;
+  }
+  .side button {
+    width: 60%;
+    margin: 70px 40px;
+  }
+  .section{
+    height:auto;
+  }
+  .sectionContent{
+    margin: 20px 60px 0px 60px ;
+  }
+  .sectionContent1{
+    /* margin-left: 50px ; */
+  }
+
+  .partners img{
+    height:80px;
+    width:100px;
+  }
+
+  .contactPop{
+    /* height:750px; */
+  }
+  .section4 {
+    position: relative;
+    padding-bottom:60px;
+  }
+  
+  .calendly-inline-widget{
+    margin-top:0px;
+    min-width: 100%;
+     height: 90%;
+  }
+  .locSect1{
+    display:block;
+    right:40%;
+    top:-8%;
+    width:110px;
+    height:110px;
+    font-size:.7em;
+   
+  }
+  .locSect1 img{
+    width:30px;
+    height:30px;
+    padding:5px;
+  }
+}
+
+
 @media only screen and (max-width: 850px) {
   .headerContainer ul li::after {
   display:none;
@@ -1328,9 +1439,7 @@ button:hover {
     font-size: 1.4em;
     text-align:center;
   }
-  .sectionContent2 .sideContent h2 {
-    /* text-align:center; */
-  }
+
   .sectionContent2 .sideContent h2 {
     font-size: 1.8em;
   }
@@ -1339,6 +1448,15 @@ button:hover {
     letter-spacing: 0.03em;
     width: 100%;
   }
+  .slider{
+    gap:10px;
+    width:100%;
+}
+  .slider img{
+    width: 75px;
+    height:75px;  
+  }
+
   .section3 {
     height: 50vh;
     padding-top: 0px;
@@ -1421,11 +1539,7 @@ button:hover {
   
     transform:translate(100%,-100%)
   }
-  .locSect1{
-    padding: 10px 20px;
-    right: -10%;
-  top: -10%;
-  }
+ 
   .sectionContent6 {
 
     flex-direction: column;
@@ -1435,6 +1549,8 @@ button:hover {
   }
   .section6 {
     min-height:135vh;
+    margin-bottom:80px;
+
 
   }
 
@@ -1443,6 +1559,7 @@ button:hover {
     position: relative;
     justify-content: space-around;
     gap:25px;
+    margin-bottom:0px;
   }
   .sectionContent6 .sideContent h4 {
     text-align: center;
@@ -1524,18 +1641,14 @@ button:hover {
   }
 
 
-  .calendly-inline-widget{
-    margin-top:30px;
-    min-width: 100%;
-     height: 100%
-  }
+
  
   .locSect1{
     width:150px;
     height:150px;
     gap:3px;
-    right:10%;
-    top:-25%
+    right:15%;
+    top:-25%; 
   }
   .locSect1 img {
   
@@ -1544,21 +1657,27 @@ button:hover {
   }
 
   .mapper {
-    width: 160%;
-    margin:auto;
-    margin-left:-80px;
+    width: 100%;
+    
   }
   .mapComponent,
   .map-container {
     width: 100%;
   }
-  .calendly-inline-widget{
-    width: 160%;
-    margin:auto;
-    margin-left:-80px;
-    height:80%;
-  }
 
+  .locSect1{
+    display:block;
+    right:40%;
+    top:-8%;
+    width:110px;
+    height:110px;
+    font-size:.7em;
+  }
+  .locSect1 img{
+    width:30px;
+    height:30px;
+    padding:5px;
+  }
   .contactForm {
     width: 90%;
   }
@@ -1584,63 +1703,6 @@ button:hover {
 }
 
 
-@media only screen and (max-width: 1024px) {
-  
-  .logo {
-    width: 40%;
-  }
-  .headerContainer ul {
-
-    gap: 30px;
-  
-  }
-  .partners{
-
-    transform: translateY(-30%)
-  }
-  .logo{
-    transform:translateX(0%)
-  }
-  .side{
-    width: 90%;
-    margin: 70px 40px;
-  }
-  .side button {
-    width: 60%;
-    margin: 70px 40px;
-  }
-  .section{
-    height:auto;
-  }
-  .sectionContent{
-    margin: 20px 60px 0px 60px ;
-  }
-  .sectionContent1{
-    /* margin-left: 50px ; */
-  }
-
-  .partners img{
-    height:80px;
-    width:100px;
-  }
-
-  .contactPop{
-    /* height:750px; */
-  }
-  .section4 {
-    position: relative;
-    padding-bottom:60px;
-  }
-  
-  .calendly-inline-widget{
-    margin-top:0px;
-    min-width: 100%;
-     height: 400px;
-  }
-  .locSect1{
-    display:none;
-  }
-}
 
 
 @media only screen and (max-width: 600px) {
@@ -1656,18 +1718,12 @@ button:hover {
    transform-origin:150px;
 }
 
-.content::before{
-  /* inset:70px; */
-
-}
 .content-img{
  width:40%;
   height:40%;
 
 }
-.content-img .text{
 
-}
 
 }
 
@@ -1761,8 +1817,17 @@ button:hover {
   .partners{
   }
   .partners img{
-    height:60px;
-    width:60px;
+    height:50px;
+    width:50px;
+  }
+  .slider{
+    gap:5px;
+    width:120%;
+}
+  .slider img{
+    width: 60px;
+    height:60px; 
+    object-fit:contain; 
   }
   .section{
     height:auto;
@@ -1774,29 +1839,7 @@ button:hover {
     margin-left: 50px ;
   }
  
-/*   
-  .section3 {
-    height: 40vh;
-    padding: 15px 0;
-    
-  }
-  .sectionContent3 {
-    flex-direction: column;
-    display: block;
-    align-items: center;
-  }
-  .sectionContent3 .rightContent,
-.sectionContent3 .leftContent {
-  
-  gap: 30px;
-  margin: 30px 0px;
-}
 
-.sectionContent3 .rightContent p,
-.sectionContent3 .leftContent p {
-  width: 80%;
-  line-height: 1.6em;
-} */
 .circle-lines {
   display: flex;
   flex-direction: row;
@@ -1889,20 +1932,7 @@ button:hover {
 .france img {
   transform: translate(300%, 200%);
 }
-.section7 {
-  min-height: 100vh;
-  width:100vw;
-  padding:40px 0 0 0;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  gap:15px;
-}
-.sectionContent7{
-  width:90%;
-  margin:auto;
-}
+
 .contactPop{
     height:500px;
     width:330px;
@@ -1911,32 +1941,15 @@ button:hover {
     z-index:12;
   }
 
-  .calendlyForm{
+  /* .calendlyForm{
   width:90%;
   height:90%;
 }
   .calendly-inline-widget{
     width:inherit;
     margin-left:0px
-  }
-  .location{
-    width:90%;
-    margin-left:0px;
-   
-  }
-  .mapComponent{
-    width:100%;
-     margin:0px;
-  }
-  .mapper{
- width:100%;
-  height:90%;
-    margin:0px;
-  }
-  .map-container{
-    width:100%;
-    margin:0px;
-  }
+  } */
+ 
 
 }
 
@@ -1944,26 +1957,26 @@ button:hover {
 
 
 /* width */
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
   width: 20px;
-}
+} */
 
 /* Track */
-::-webkit-scrollbar-track {
+/* ::-webkit-scrollbar-track {
   box-shadow: inset 0 0 5px grey; 
   border-radius: 15px;
 }
- 
+  */
 /* Handle */
-::-webkit-scrollbar-thumb {
+/* ::-webkit-scrollbar-thumb {
   background: rgb(171, 143, 64); 
   border-radius: 15px;
-}
+} */
 
 /* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
+/* ::-webkit-scrollbar-thumb:hover {
   background: #201201;; 
-}
+} */
 /* scrollbar */
 
 

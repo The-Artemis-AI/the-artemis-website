@@ -7,6 +7,8 @@ import cancel from "../assets/images/xmark-solid.svg"
 import emailjs from "emailjs-com";
 import {ToastContainer, toast} from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
+import {BrowserRouter} from "react-router-dom"
+import {HashLink as Link} from "react-router-hash-link"
 
 const Form = () => {
 
@@ -100,10 +102,10 @@ const Form = () => {
     
   </div>
   <div className='secondPop'>
-  
-      <button id='secondPop' onClick={handleContactPop2}>
+  <Link to="#ourContact" smooth>
+      <button id='secondPop' >
         {isContactFormVisible ? <img src={cancel} alt='cancel'/> : <img src={message} alt="contact us"/>}
-      </button>
+      </button></Link>
     </div>
     <ToastContainer/>
   </div>

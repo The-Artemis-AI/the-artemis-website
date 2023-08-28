@@ -449,23 +449,24 @@ hiddenElement.forEach((el) => observer.observe(el));
         <div className="partners">
 
       <div className="slider">
+      <div>
+      <Imager ImageSource={UOO} alt="Oxford" />
+      </div>
+        <div>
+          <Imager ImageSource={revolution} alt="revolution" id='revolution'/>
+        </div>
+        <div>
+          <Imager ImageSource={Rwanda} alt="rwandagov" id='rwandagov'/>
+        </div>
+        <div>
+          <Imager ImageSource={Manchester} alt="Manchester" />
+        </div>
+        <div>
+          <Imager ImageSource={CMU} alt="CMU" id='mellon'/>
+        </div>
+      
         <div>
           <Imager ImageSource={apiday} alt="Apiday" />
-        </div>
-        <div>
-          <Imager ImageSource={revolution} alt="revolution" />
-        </div>
-        <div>
-          <Imager ImageSource={Rwanda} alt="Apiday" />
-        </div>
-        <div>
-          <Imager ImageSource={Manchester} alt="Apiday" />
-        </div>
-        <div>
-          <Imager ImageSource={CMU} alt="Apiday" />
-        </div>
-        <div>
-          <Imager ImageSource={UOO} alt="Apiday" />
         </div>
       
       

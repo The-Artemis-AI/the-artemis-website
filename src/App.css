@@ -250,16 +250,23 @@ a {
  
   display: flex;
   justify-content:space-around;
-  gap:30px;
-  width:100%;
  
-  
+  width:100%;
+
   /* animation: scroll 20s linear infinite; */
+}
+.slider img:nth-child(3), .slider img:nth-child(5){
+  transform:scale(.6);
+  background:blue;
+}
+
+#rwandagov , #mellon{
+  transform:scale(.6);
 }
 .slider img{
   /* margin: 0 20px; */
-  width: 90px;
-  height:90px;
+  width: 120px;
+  height:120px;
   filter: contrast(0.9);
   object-fit:contain;
   /* aspect-ratio: 4/3; */
@@ -1815,22 +1822,31 @@ button:hover {
     font-size: 1.5em;
   }
   .partners{
+    overflow:show;
+    margin-left:-30px;
   }
   .partners img{
     height:50px;
     width:50px;
   }
+
   .slider{
-    gap:5px;
-    width:120%;
+    width:100%;
+
 }
   .slider img{
-    width: 60px;
-    height:60px; 
+    width: 40px;
+    height:40px; 
     object-fit:contain; 
+    margin-left:-5px
+  }
+  #rwandagov , #mellon{
+    transform:scale(.5);
+    background:red;
   }
   .section{
     height:auto;
+    overflow-x:hidden;
   }
   .sectionContent{
     margin: 20px 15px;
@@ -1939,6 +1955,9 @@ button:hover {
   }
   .firstPop{
     z-index:12;
+  }
+  .arrow{
+    display:none;
   }
 
   /* .calendlyForm{

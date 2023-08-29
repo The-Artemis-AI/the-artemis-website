@@ -25,8 +25,6 @@ import artemisbg from "./assets/images/theartemisai-bg.png"
 import facebook from "./assets/images/facebook-white.svg"
 import twitter from "./assets/images/twitter-white.svg"
 import google from "./assets/images/google-white.svg"
-import diskSide from "./assets/images/disk-side.svg"
-import diskFlat from "./assets/images/disk-flat.svg"
 import eye from "./assets/images/eye.svg"
 import circles from "./assets/images/circles.svg"
 import man from "./assets/images/man.svg"
@@ -523,7 +521,6 @@ hiddenElement.forEach((el) => observer.observe(el));
     
 
     </div>
-    <div className="disk"><Imager ImageSource={diskSide} alt="image"/></div>
     
     </div>
 
@@ -563,7 +560,6 @@ hiddenElement.forEach((el) => observer.observe(el));
     </div>
 
     <div className="section5 section" id="ourCustomers" style={{ backgroundImage:`url(${services})`}} >
-    <div className="disk2"><Imager ImageSource={diskFlat} alt="image"/></div> 
     <div className="sectionContent sectionContent5">
       <div className="title"><h4>OUR CUSTOMERS</h4></div>
       
@@ -632,13 +628,15 @@ hiddenElement.forEach((el) => observer.observe(el));
     </div>
     </div>
 
-    <div className="section7 section"  id="ourContact" style={{ backgroundImage:`url(${services})`}}>
+    <div className="section7 section"  id="ourContact"
+    //  style={{ backgroundImage:`url(${services})`}}
+     >
       <div className="sectionContent sectionContent7">
       
-    <div className="calendlyForm">
+    
       
     <HubSpotForm />
-    </div>
+    
 
        
       </div>

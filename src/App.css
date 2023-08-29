@@ -1751,6 +1751,19 @@ button:hover {
   transform:translateX(0%);
   filter:blur(0);
 }
+.hubForm{
+  width:100%;
+}
+
+#hubspot-form-container{
+  width:100%;
+  color:white;
+
+}
+#hubspot-form-container input{
+border-radius:4px;
+
+}
 
 @media(prefer-reduced-motion){
   .section{

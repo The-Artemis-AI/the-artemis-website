@@ -3,6 +3,8 @@ import './App.css'
 import './animation.css'
 import logo from "./assets/images/logo.svg"
 import Header from "./components/Header.jsx"
+import HubSpotForm from "./components/HubSpotForm.jsx"
+
 import Form from "./components/Form.jsx"
 import MapComponent from "./components/MapComponent.jsx"
 import CalendlyLink  from "./components/CalendlyLink.jsx";
@@ -634,7 +636,9 @@ hiddenElement.forEach((el) => observer.observe(el));
       <div className="sectionContent sectionContent7">
       
     <div className="calendlyForm">
-      <CalendlyInlineWidget /></div>
+      
+    <HubSpotForm />
+    </div>
 
        
       </div>

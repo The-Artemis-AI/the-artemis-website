@@ -28,6 +28,8 @@ import google from "./assets/images/google-white.svg"
 import eye from "./assets/images/eye.svg"
 import circles from "./assets/images/circles.svg"
 import man from "./assets/images/man.svg"
+import left from "./assets/images/left.svg"
+import right from "./assets/images/right.svg"
 import services from "./assets/images/service-bg.svg"
 import wholeMap from "./assets/map/whole-map.svg"
 import cmu from "./assets/map/cmu2.png"
@@ -631,22 +633,19 @@ hiddenElement.forEach((el) => observer.observe(el));
     <hr></hr>
     {/* Slideshow navigation */}
     <div className="navigation">
-    <div className="indicators">
-      <p>
-        Slide {currentSlide + 1} of {slideshowContent.length}
-      </p>
-    </div>
+  
 
     {slideshowContent.length > 1 && (
       <div className="buttons">
         <button onClick={handlePrevSlide} disabled={currentSlide === 0}>
-          Prev
+         
+              <Imager ImageSource={left}/>
         </button>
         <button
           onClick={handleNextSlide}
           disabled={currentSlide === slideshowContent.length - 1}
         >
-          Next
+        <Imager ImageSource={right}/>
         </button>
       </div>
     )}

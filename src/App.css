@@ -618,6 +618,7 @@ animation-play-state:pause;
   height:100px;
   border-radius:50%;
   transition:.5s;
+  rotate:90deg;
   box-shadow:0 0 0 4px rgb(171, 143, 64),0 0 6px #201201;
   transform:rotate(calc(360deg/3 * var(--i)));
   border:1px  solid white;
@@ -635,6 +636,7 @@ left:0;
 width:100%;
 height:100%;
 object-fit:cover;
+rotate:-90deg;
 transform:rotate(calc(-360deg/3 * var(--i))); 
 transition:.5s;
  
@@ -686,7 +688,7 @@ transition:.5s;
   width:100%;
   height:100%;
   background:rgb(171, 143, 64);
-  display:none;
+  display:flex;
   flex-direction:column;
   padding:0 10px;
   gap:5px;
@@ -950,7 +952,9 @@ form textarea {
 
 .section7{
   height:100vh;
+  background-color:white;
 }
+
 .sectionContent7{
   display:flex;
   flex-direction:column;
@@ -1555,7 +1559,7 @@ button:hover {
    gap:40px;
   }
   .section6 {
-    min-height:135vh;
+    min-height:130vh;
     margin-bottom:80px;
 
 
@@ -1623,10 +1627,9 @@ button:hover {
   }
 
   .section7 {
-    min-height: 100vh;
+    min-height: auto;
     width:100vw;
     padding:40px 0 0 0;
-    /* margin:20px 0; */
   }
   .ourSuccess hr{
     width:120%
@@ -1634,10 +1637,7 @@ button:hover {
   .ourSuccess .navigation{
     width:120%;
   }
-  .navigation .indicators{
-  
-    /* transform:translateX(5%) */
-  }
+
   .sectionContent7 {
     /* align-items:center; */
     flex-direction: column;
@@ -1646,9 +1646,7 @@ button:hover {
     justify-content:center;
     align-items:center;
   }
-
-
-
+   
  
   .locSect1{
     width:150px;
@@ -1803,14 +1801,13 @@ border-radius:4px;
   body {
     width:100vw;
     overflow-x: hidden;
+    font-size:.85em;
  }
   .logo {
     width: 40%;
     margin-left:20px;
   }
-  .section{
-    /* min-height:70vh */
-  }
+
   .sectionContent {
     width: 90%;
     padding: 10px ;
@@ -2012,3 +2009,49 @@ border-radius:4px;
 /* scrollbar */
 
 
+#ourContact{
+  min-height:150vh;
+  height:auto;
+  place-content:center;
+  padding:20px 0;
+  background:rgba(171, 143, 64,.1);
+  display:flex;
+  flex-direction:column;
+  justify-content: space-evenly;
+  align-items:center;
+}
+#ourContact #hubspot-form-container{
+  height:100%;
+}
+#ourContact #hubspot-form-container input{
+
+}
+
+#ourLocation{
+  height:100vh;
+}
+
+@media only screen and (max-width: 450px) {
+  #ourContact{
+
+    justify-content: flex-start;
+    align-items:center;
+  }
+
+  #ourLocation{
+    /* height:80vh; */
+  }
+  /* .location{
+    height:100%;
+  }
+ 
+  */
+    .locSect1{
+      right:30%;
+    }
+    .map-container div iframe{
+      height: 80%;
+      width: 100%;
+      margin:0;
+      } 
+}

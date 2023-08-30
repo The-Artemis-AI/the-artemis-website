@@ -366,12 +366,11 @@ function App() {
   const customStyle = [
     {'--i': '1',},
     {'--i': '2',},
-    {'--i': '3',},
-    {'--i': '4',},
-    {'--i': '5',}
+    {'--i': '3',}
+
     
   ];
-const [textChange, setTextChange]=useState({})
+const [textChange, setTextChange]=useState(0)
 const text = document.getElementById('text')
 
 const changeContent1 = ()=>{
@@ -399,9 +398,35 @@ const changeContent3 = ()=>{
       content: "We work with small, medium and large companies by providing AI-powered solutions to address their specific needs."
     })
    
- 
 }
 
+
+
+const textShowContent = [
+  {
+    heading: "ACADEMIA",
+    content: "We develop AI-based educational tools, and creating innovative AI solutions for academic institutions."
+  },
+  {
+    heading: "GOVERNMENTS",
+    content: "We collaborate with government agencies to develop AI solutions that enhance public services, optimize processes, and foster data-driven decision-making."
+  },
+  {
+    heading: "PRIVATE SECTOR",
+    content: "We work with small, medium and large companies by providing AI-powered solutions to address their specific needs."
+  }
+  
+];
+
+useEffect(() => {
+  // Function to change the slide every 2 seconds
+  const interval = setInterval(() => {
+    setTextChange((prevSlide) => (prevSlide + 1) % textShowContent.length);
+  }, 5000);
+
+  // Cleanup function to clear the interval when the component unmounts
+  return () => clearInterval(interval);
+}, [textShowContent.length]);
  
 const handleMouseLeave = ()=>{
   if(text.style.display === "flex"){
@@ -565,16 +590,19 @@ hiddenElement.forEach((el) => observer.observe(el));
       
       <div className="circularImages">
       <div className="orbit">
-      <Imager ImageSource={university}   ImageClass='img1' style={customStyle[0]} onMouseOver={changeContent1} onMouseLeave={handleMouseLeave}/>
-      <Imager ImageSource={government}  ImageClass='img2' style={customStyle[1]} onMouseOver={changeContent2} onMouseLeave={handleMouseLeave}/>
-      <Imager ImageSource={privatecomp}  ImageClass='img3' style={customStyle[2]} onMouseOver={changeContent3} onMouseLeave={handleMouseLeave}/>
+      <Imager ImageSource={university}   ImageClass='img1' style={customStyle[0]} />
+      <Imager ImageSource={government}  ImageClass='img2' style={customStyle[1]}
+      //  onMouseOver={changeContent2} 
+      //  onMouseLeave={handleMouseLeave}
+       />
+      <Imager ImageSource={privatecomp}  ImageClass='img3' style={customStyle[2]} />
      
       </div>
       <div className='content' >
       <div className='content-img' style={{ backgroundImage:`url(${artemisbg})`}}>
       <div className='text' id='text'>
-        <h3>{textChange.heading}</h3>
-        <p>{textChange.content}</p>
+        <h3>{textShowContent[textChange].heading}</h3>
+        <p>{textShowContent[textChange].content}</p>
       </div>
       </div>
       </div>
@@ -632,13 +660,7 @@ hiddenElement.forEach((el) => observer.observe(el));
     //  style={{ backgroundImage:`url(${services})`}}
      >
       <div className="sectionContent sectionContent7">
-      
-    
-      
-    <HubSpotForm />
-    
-
-       
+          <HubSpotForm />
       </div>
     </div>
 

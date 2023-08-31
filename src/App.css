@@ -4,7 +4,6 @@
   box-sizing: border-box;
 }
 body {
-  /* font-family: "system-ui", arial, monospace; */
   font-family: "Inter", monospace;
   overflow-x: hidden;
   position:relative;
@@ -38,13 +37,9 @@ a {
   display: flex;
   gap: 70px;
   justify-content: space-between;
-  
-  /* position: fixed; */
   top: 0;
   width:100vw;
-  /* background: rgba(171, 143, 64, 0.6); */
   filter: blur(0.5);
-  /* backdrop-filter: blur(5px); */
 }
 .fixed{
   position:fixed;
@@ -52,10 +47,8 @@ a {
 }
 .section1{
   width:100%;
-  /* margin-top:-5%; */
 }
 .section1 .headerContainer{
-/* position:fixed; */
 }
 
 .logo {
@@ -70,7 +63,6 @@ a {
 .headerSide {
   display: flex;
   width: 70vw;
-  /* gap:60px; */
   justify-content: space-between;
 }
 .headerContainer {
@@ -175,7 +167,7 @@ a {
   display:flex;
 }
 .hide{
-  display:none;
+  /* display:none; */
 }
  .burger-content ul li a:hover{
   background:rgb(191, 143, 64);;
@@ -442,7 +434,7 @@ animation-play-state:pause;
   flex-direction: column;
   position: absolute;
   right: 10%;
-  top: 0%;
+  top: 30%;
   z-index: 3;
 }
 .circle-lines button {
@@ -793,25 +785,6 @@ margin:auto;
   left: 20%;
 }
 
-.country img {
-  background-color: none;
-  width: 40px;
-  height: 50px;
- 
-  cursor: pointer;
-}
-.usa img {
-  transform: translate(110%, 330%);
-}
-.rwanda img {
-  transform: translate(470%, 300%);
-}
-.england img {
-  transform: translate(450%,120%);
-}
-.france img {
-  transform: translate(520%, 150%);
-}
 
 
 .sectionContent6 .ourSuccess {
@@ -843,17 +816,24 @@ margin:auto;
   padding: 10px 10px 30px 30px;
   background: rgb(32, 18, 1);
   color: white;
-  min-height: 60%;
+  min-height: 70%;
   font-size:.85em;
   border-radius: 40px 0px 0px 0px;
+  z-index:16;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
   
+
 }
 
 .ourSuccess hr{
   background-color:rgb(171, 143, 64);
-  height: 1px;
+  color:rgb(171, 143, 64);
+  height: 0.4px;
   width:100%;
-   border: dotted;
+   border: solid;
 }
 
 .successImage {
@@ -869,8 +849,11 @@ margin:auto;
   border-radius: 0px 40px 0px 0px;
   width: 100%;
   height: 100px;
+  padding:5px;
+  scale:.7;
   object-fit: contain;
 }
+
 
 .ourSuccess {
   display: flex;
@@ -1128,6 +1111,7 @@ margin:auto;
   background-color: white;
 }
 
+
 .contactPop {
   width: 350px;
   height: 600px;
@@ -1246,16 +1230,6 @@ margin:auto;
 
 }
 
-.hidden {
-  /* display:none; */
-  transform: scale(0);
-  /* transform: translateX(100%); */
-}
-
-.visibly {
-  /* display:flex; */
-  transform: scale(1);
-}
 
 button {
   transition: 0.4s;
@@ -1304,37 +1278,8 @@ button:hover {
 
 }
 
-@media only screen and (max-width: 1920px) {
-  .usa img {
-    transform: translate(0%, 130%);
-  }
-  .rwanda img {
-    transform: translate(670%, 300%);
-  }
-  .england img {
-    transform: translate(650%, 0%);
-  }
-  .france img {
-    transform: translate(600%, 100%);
-  }
-
-}
 
 
-@media only screen and (max-width: 1370px) {
-  .usa img {
-    transform: translate(110%, 330%);
-  }
-  .rwanda img {
-    transform: translate(470%, 300%);
-  }
-  .england img {
-    transform: translate(450%,120%);
-  }
-  .france img {
-    transform: translate(520%, 150%);
-  }
-}
 
 
 @media only screen and (max-width: 1024px) {
@@ -1493,7 +1438,16 @@ button:hover {
     display: flex;
     flex-direction: row;
     margin: 1px;
-    transform: translate(-27%, -130%);
+    /* transform: translate(-27%, -130%); */
+  }
+
+  .circle-lines {
+    display: flex;
+    flex-direction: row;
+    margin: 0px;
+    top: 25%;
+    right:32%;
+    /* transform: translate(-10%, -100%); */
   }
 
   .circle-lines .line {
@@ -1554,11 +1508,11 @@ button:hover {
    gap:40px;
   }
   .section6 {
-    min-height:130vh;
-    margin-bottom:80px;
-
+    min-height:120vh;
+    /* margin-bottom:180px; */
 
   }
+  
 
   .sectionContent6 .sideContent {
     width: 90%;
@@ -1604,22 +1558,9 @@ button:hover {
   .map {
     width: 90%;
     position: relative;
+    margin-bottom:-10%;
   }
-  .country img {
-    position: absolute;
-  }
-  .usa img {
-    transform: translate(70%, 440%);
-  }
-  .rwanda img {
-    transform: translate(470%, 490%);
-  }
-  .england img {
-    transform: translate(450%, 360%);
-  }
-  .france img {
-    transform: translate(520%, 400%);
-  }
+  
 
   .section7 {
     min-height: auto;
@@ -1721,12 +1662,8 @@ button:hover {
 .content-img{
  width:40%;
   height:40%;
-
-}
-
-
-}
-
+} 
+  }
 
 .headerContainer ul li a:hover{
   color:white;
@@ -1734,16 +1671,9 @@ button:hover {
 }
 
 .section{
-  opacity:0;
-  transform:translateX(-100%);
-  transition:all 1s;
-  filter:blur(5px);
-}
-.show{
   opacity:1;
-  transform:translateX(0%);
-  filter:blur(0);
 }
+
 .hubForm{
   width:100%;
 }
@@ -1755,21 +1685,20 @@ button:hover {
 }
 #hubspot-form-container input{
 border-radius:4px;
-
+}
+.content-img .text{
+  gap:2px;
+  font-size:.62em;
+  transition:.4s;
 }
 
-@media(prefer-reduced-motion){
-  .section{
-    transition:none;
-  }
-}
-/* 
-// <Imager ImageSource={healthcare}  ImageClass='img4' style={customStyle[3]} onMouseOver={changeContent4} onMouseLeave={handleMouseLeave}/>
-// <Imager ImageSource={tech}  ImageClass='img5' style={customStyle[4]} onMouseOver={changeContent5} onMouseLeave={handleMouseLeave}/> */
+
+
 
 @media only screen and (max-width: 1081px) {
   .section6{
-    height:100vh;
+    height:90vh;
+    margin-bottom:-100px;
   }
   .section6 .sideContent{
     height:auto;
@@ -1777,19 +1706,7 @@ border-radius:4px;
   .map{
     height:50vh;
   }
-  .usa img {
-    transform: translate(0%, 130%);
-  }
-  .rwanda img {
-    transform: translate(670%, 300%);
-  }
-  .england img {
-    transform: translate(650%, 0%);
-  }
-  .france img {
-    transform: translate(600%, 100%);
-  }
-
+  
 }
 
 @media only screen and (max-width: 450px) {
@@ -1865,7 +1782,9 @@ border-radius:4px;
   display: flex;
   flex-direction: row;
   margin: 0px;
-  transform: translate(-5%, -270%);
+  top: 25%;
+  right:20%;
+  /* transform: translate(-10%, -100%); */
 }
 .sectionContent4 .sideContent {
   width: 100%;
@@ -1896,12 +1815,7 @@ border-radius:4px;
   transform:translate(0%,-100%)
 }
 
-.card-container .image{
-  z-index:10;
-  background:black;
-  width:150px;
-  height:150px;
-}
+
 .content-img .text{
   
   gap:2px;
@@ -1928,30 +1842,22 @@ border-radius:4px;
   height: 70%;
   font-size:.85em;
   border-radius: 40px 0px 0px 0px;
-  
+  margin:0; 
+}
+.section6{
+  height:120vh;
+  margin-bottom:-30px;
+}
+
+.successImage img{
+  scale:1;
 }
 .map {
   width: 100%;
-  margin-top: 0px;
+  margin: 10px 0 110px 0;
+  height:100%;
   position: relative;
-}
-.country img {
-  position: absolute;
-  width:30px;
-  height:30px;
-}
-
-.usa img {
-  transform: translate(80%, 450%);
-}
-.rwanda img {
-  transform: translate(350%, 390%);
-}
-.england img {
-  transform: translate(390%, 240%);
-}
-.france img {
-  transform: translate(300%, 200%);
+  
 }
 
 .contactPop{
@@ -1965,15 +1871,7 @@ border-radius:4px;
     display:none;
   }
 
-  /* .calendlyForm{
-  width:90%;
-  height:90%;
-}
-  .calendly-inline-widget{
-    width:inherit;
-    margin-left:0px
-  } */
- 
+
 
 }
 
@@ -2002,31 +1900,7 @@ border-radius:4px;
   background: #201201;; 
 } */
 /* scrollbar */
-@font-face{
-  font-family: 'Material Symols Rounded';
-  font-style: normal;
-  font-weight:400;
-  src:url(../font/material-symbol-rounded.woff2) format('woff2'); 
-}
 
-.m-icon{
-  font-family:'Material Symols Rounded';
-  font-weight:normal;
-  font-style:normal;
-  font-size:2.4rem;
-  line-height:1;
-  letter-spacing:normal;
-  text-transform:none;
-  white-space:none;
-  word-wrap:normal;
-  direction:ltr;
-  font-feature-settings:'liga';
-  -webkit-font-feature-settings:'liga';
-  -webkit-font-smoothing: antialiased;
-  height:1em;
-  width:1em;
-  overflow:hidden;
-}
 
 #ourContact{
   max-height:150vh;
@@ -2042,9 +1916,7 @@ border-radius:4px;
 #ourContact #hubspot-form-container{
   height:100%;
 }
-#ourContact #hubspot-form-container input{
 
-}
 
 #ourLocation{
   height:auto;
@@ -2058,13 +1930,9 @@ border-radius:4px;
   }
 
   #ourLocation{
-    /* height:80vh; */
+  
   }
-  /* .location{
-    height:100%;
-  }
- 
-  */
+
     .locSect1{
       right:30%;
     }
@@ -2075,11 +1943,3 @@ border-radius:4px;
       } 
 }
 
-
-
-
-/* <div className="indicators">
-<p>
-  Slide {currentSlide + 1} of {slideshowContent.length}
-</p>
-</div> */

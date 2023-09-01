@@ -431,45 +431,53 @@ useEffect(() => {
     <div className="section6 section" id="ourSuccess" >
       <div className="sectionContent sectionContent6">
       <div className="sideContent">
-        <div><h4>OUR SUCCESS</h4></div>
-      <div><p>We are proud of what we have accomplished thus far, and we are eager to see what the future holds. We believe in the power of artificial intelligence to change the world, and we are determined to use our expertise to make a difference.</p></div>
-      <div className="map" ><Imager ImageSource={wholeMap} alt="map"/></div> 
+          <div class="success-words">
+            <div><h4>OUR SUCCESS</h4></div>
+          <div>
+          <p>Our journey has been remarkable, spanning across borders from the scenic landscapes of France to the vibrant communities of Rwanda, the dynamic markets of the United Kingdom, and the innovation hub of the United States. We're proud of our global footprint, partnering with forward-thinking enterprises to harness the power of artificial intelligence for lasting change. Our success is defined not just by completed projects but by the impact we bring to the world. With unwavering determination, we see AI as a force to reshape industries, solve global challenges, and improve lives, and we're dedicated to pushing the boundaries of innovation for a more sustainable and equitable future.</p>
+          
+          </div>
+          
+          </div>
+      <div className="ourSuccess">
+            <div className="successImage"><Imager ImageSource={slideshowContent[currentSlide].image} alt={slideshowContent[currentSlide].title}/></div>
+            <div className="successContent">
+                  <h4>{slideshowContent[currentSlide].title}</h4>
+                  <p>{slideshowContent[currentSlide].content}</p>
+            </div>
+            <hr></hr>
+            {/* Slideshow navigation */}
+            <div className="navigation">
+          
+
+            {slideshowContent.length > 1 && (
+              <div className="buttons">
+                <button onClick={handlePrevSlide} disabled={currentSlide === 0}>
+                
+                      <Imager ImageSource={left}/>
+                </button>
+                <button
+                  onClick={handleNextSlide}
+                  disabled={currentSlide === slideshowContent.length - 1}
+                >
+                <Imager ImageSource={right}/>
+                </button>
+              </div>
+            )}
+          </div>
+            
+    </div>
       
     </div>
-    <div className="ourSuccess">
-    <div className="successImage"><Imager ImageSource={slideshowContent[currentSlide].image} alt={slideshowContent[currentSlide].title}/></div>
-    <div className="successContent">
-
-    <h4>{slideshowContent[currentSlide].title}</h4>
-    <p>{slideshowContent[currentSlide].content}</p>
-    </div>
-    <hr></hr>
-    {/* Slideshow navigation */}
-    <div className="navigation">
-  
-
-    {slideshowContent.length > 1 && (
-      <div className="buttons">
-        <button onClick={handlePrevSlide} disabled={currentSlide === 0}>
-         
-              <Imager ImageSource={left}/>
-        </button>
-        <button
-          onClick={handleNextSlide}
-          disabled={currentSlide === slideshowContent.length - 1}
-        >
-        <Imager ImageSource={right}/>
-        </button>
-      </div>
-    )}
-  </div>
     
-    </div>
+      <div className="map" ><Imager ImageSource={wholeMap} alt="map"/></div> 
+
+
     </div>
     </div>
 
     <div className="section7 section"  id="ourContact"
-    //  style={{ backgroundImage:`url(${services})`}}
+
      >
       <div className="sectionContent sectionContent7">
           <HubSpotForm />

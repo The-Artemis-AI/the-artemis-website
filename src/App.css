@@ -249,7 +249,7 @@ a {
 }
 .slider img:nth-child(3), .slider img:nth-child(5){
   transform:scale(.6);
-  background:blue;
+
 }
 
 #rwandagov , #mellon{
@@ -1480,7 +1480,6 @@ button:hover {
   height:220px;
 }
 .section6{
-  background:grey;
 }
 .successContent{
   width:300px;
@@ -1654,7 +1653,6 @@ border-radius:4px;
 
 .map{
   height:250px;
-  background:red;
 }
 .map img{
   height:300px;

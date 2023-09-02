@@ -4,12 +4,8 @@ import './animation.css'
 import logo from "./assets/images/logo.svg"
 import Header from "./components/Header.jsx"
 import HubSpotForm from "./components/HubSpotForm.jsx"
-
 import Form from "./components/Form.jsx"
 import MapComponent from "./components/MapComponent.jsx"
-import CalendlyLink  from "./components/CalendlyLink.jsx";
-import CalendlyInlineWidget  from "./components/CalendlyInlineWidget.jsx";
-import SuccessCard  from "./components/SuccessCard.jsx";
 import Stick from "./components/Stick.jsx"
 import Section1 from "./assets/Group-back.png"
 import Imager from "./components/Image.jsx"
@@ -62,100 +58,9 @@ function App() {
   const [isLeftVisible, setIsLeftVisible] = useState(false);
   const [isRightVisible, setIsRightVisible] = useState(false);
 
-  function Slider() {
-    const sliderRef = useRef(null);
   
-    useEffect(() => {
-      // Function to continuously slide the images to the left
-      const slideImages = () => {
-        const slider = sliderRef.current;
-        if (slider) {
-          const firstImage = slider.querySelector('div:first-child');
-          if (firstImage) {
-            const imageWidth = firstImage.offsetWidth + 40; // Including margins
-            slider.style.transition = 'none';
-            slider.style.transform = `translateX(-${imageWidth}px)`;
-  
-            // Reset the transition after a short delay to create a continuous loop
-            setTimeout(() => {
-              slider.style.transition = 'transform 5s linear';
-              slider.style.transform = 'translateX(0)';
-            }, 50);
-          }
-        }
-      };
-  
-      const interval = setInterval(slideImages, 5000); // Adjust the interval as needed (5 seconds in this example)
-  
-      return () => clearInterval(interval);
-    }, []);
-
-    return (
-    <div className="partners">
-      <div className="slider" ref={sliderRef}>
-        <div>
-          <Imager ImageSource={apiday} alt="Apiday" />
-        </div>
-        <div>
-          <Imager ImageSource={revolution} alt="revolution" />
-        </div>
-        <div>
-          <Imager ImageSource={Rwanda} alt="Rwanda Gov" />
-        </div>
-        <div>
-          <Imager ImageSource={Manchester} alt="mancheste" />
-        </div>
-        <div>
-          <Imager ImageSource={CMU} alt="CMU" />
-        </div>
-        <div>
-          <Imager ImageSource={UOO} alt="Oxford" />
-        </div>
-      </div>
-    </div>
-  );
-}
 
 
-
-  useEffect(() => {
-    const handleScrollMove = () => {
-      const leftElement = document.getElementById('left-element');
-      const rightElement = document.getElementById('right-element');
-
-      if (leftElement) {
-        const rect = leftElement.getBoundingClientRect();
-        const isVisible = rect.left < window.innerWidth;
-        setIsLeftVisible(isVisible);
-      }
-
-      if (rightElement) {
-        const rect = rightElement.getBoundingClientRect();
-        const isVisible = rect.left < window.innerWidth;
-        setIsRightVisible(isVisible);
-      }
-    };
-
-    window.addEventListener('scroll', handleScrollMove);
-    return () => window.removeEventListener('scroll', handleScrollMove);
-  }, []);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const element = document.getElementById('ourSolution'); 
-
-      if (element) {
-        const rect = element.getBoundingClientRect();
-        const isVisible = rect.top < window.innerHeight;
-        setIsVisible(isVisible);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  
 
   const [service, setService] =useState({
     title:`Computer vision Systems`,
@@ -256,50 +161,6 @@ function App() {
 
 
 
-  // const [englandSlide, setEnglandSlide] = useState(0);
-
-  // const englandSlideContent = [
-  //   {
-  //     image: manchester,
-  //     title: "University of Manchester, UK",
-  //     content: "Conducted a wide scale landscape assessment of the state of NLP with respect to SDGs and ethical practices related to data collection and application of open source projects.",
-  //   },
-  //   {
-  //     image: oxford,
-  //     title: "University of Oxford, UK",
-  //     content: "Conducted a thorough mapping of the AI, Digitization and the impact of big data technology in African countries with respect to SDG.",
-  //   },
-  //   {
-  //     image: augius,
-  //     title:"Augius",
-  //     content:'AI Powered HR management software that helps to do the job based on the supply of available staff and predicting demand based on machine learning.'
-  //   }
-   
-    
-  // ];
-
-  
-  
-  // useEffect(() => {
-  //   const englandInterval = setInterval(() => {
-  //     setEnglandSlide((prevSlide) => (prevSlide + 1) % englandSlideContent.length);
-  //   }, 5000);
-
-  //   return () => clearInterval(englandInterval);
-  // }, [englandSlideContent.length]);
-
-  // useEffect(() => {
-  //   // Update the success state with the new slide content whenever englandSlide changes
-  //   setSuccess([
-  //     {
-  //       image: englandSlideContent[englandSlide].image,
-  //       title: englandSlideContent[englandSlide].title,
-  //       content: englandSlideContent[englandSlide].content,
-  //     },
-  //   ]);
-  // }, [englandSlide, englandSlideContent]);
-
-
 
   /////////////////////////
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -375,32 +236,7 @@ function App() {
 const [textChange, setTextChange]=useState(0)
 const text = document.getElementById('text')
 
-const changeContent1 = ()=>{
-  text.style.display = "flex"
-    
-    setTextChange({
-      heading: "ACADEMIA",
-      content: "We develop AI-based educational tools, and creating innovative AI solutions for academic institutions."
-    }) 
-    
-}
-const changeContent2 = ()=>{
-  text.style.display = "flex"
-    setTextChange({
-      heading: "GOVERNMENTS",
-      content: "We collaborate with government agencies to develop AI solutions that enhance public services, optimize processes, and foster data-driven decision-making."
-    })
-    
-}
 
-const changeContent3 = ()=>{
-  text.style.display = "flex"
-    setTextChange({
-      heading: "PRIVATE SECTOR",
-      content: "We work with small, medium and large companies by providing AI-powered solutions to address their specific needs."
-    })
-   
-}
 
 
 
@@ -430,29 +266,6 @@ useEffect(() => {
   return () => clearInterval(interval);
 }, [textShowContent.length]);
  
-const handleMouseLeave = ()=>{
-  if(text.style.display === "flex"){
-    text.style.display = "none"
-  }
-}
-
-
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    // console.log(entry);
-    if (entry.isIntersecting) {
-      entry.target.classList.add('show');
-    }
-    //  else {
-    //   if (entry.target.classList.contains('show')) {
-    //     entry.target.classList.remove('show');
-    //   }
-    // }
-  });
-});
-
-const hiddenElement = document.querySelectorAll('.section');
-hiddenElement.forEach((el) => observer.observe(el));
 
 
   return (
@@ -477,23 +290,23 @@ hiddenElement.forEach((el) => observer.observe(el));
 
       <div className="slider">
       <div>
-      <Imager ImageSource={UOO} alt="Oxford" />
+      <Imager ImageSource={UOO} alt="Oxford" title='Oxford University'/>
       </div>
         <div>
-          <Imager ImageSource={revolution} alt="revolution" id='revolution'/>
+          <Imager ImageSource={revolution} alt="revolution" id='revolution' title='Centre for Fourth Industrial Revolotuion'/>
         </div>
         <div>
-          <Imager ImageSource={Rwanda} alt="rwandagov" id='rwandagov'/>
+          <Imager ImageSource={Rwanda} alt="rwandagov" id='rwandagov' title='Rwanda Government'/>
         </div>
         <div>
-          <Imager ImageSource={Manchester} alt="Manchester" />
+          <Imager ImageSource={Manchester} alt="Manchester" title='University of Manchester'/>
         </div>
         <div>
-          <Imager ImageSource={CMU} alt="CMU" id='mellon'/>
+          <Imager ImageSource={CMU} alt="CMU" id='mellon' title='Carnege Mellon University'/>
         </div>
       
         <div>
-          <Imager ImageSource={apiday} alt="Apiday" />
+          <Imager ImageSource={apiday} alt="Apiday" title='Apiday'/>
         </div>
       
       
@@ -511,7 +324,7 @@ hiddenElement.forEach((el) => observer.observe(el));
       </div> 
     
     </div>
-    <div  className={`section2 section fade-in ${isVisible ? 'visible' : ''}`} id="ourSolution">
+    <div  className= "section2 section " id="ourSolution">
     <div className="sectionContent sectionContent2">
     <div className="sideContent">
     <div className=""><h4>WHO WE ARE</h4></div>
@@ -554,11 +367,11 @@ hiddenElement.forEach((el) => observer.observe(el));
     <div className="section4 section" id="ourServices" >
     <div className="sideTitle"><h2>OUR SERVICES</h2></div>
     <div className="sectionContent sectionContent4">
-    <div className={`sideImage slide-from-right ${isRightVisible ? 'visible' : ''}`} id="right-element">
+    <div className="sideImage " id="right-element">
    
         <Imager ImageSource={man}/>
     </div>
-     <div  className={`sideContent slide-from-left ${isLeftVisible ? 'visible' : ''}`} id="left-element">
+     <div  className="sideContent" id="left-element">
           <div className=""><h4>{service.title}</h4></div>
           
           <div className="sideParagraph">
@@ -592,12 +405,12 @@ hiddenElement.forEach((el) => observer.observe(el));
       
       <div className="circularImages">
       <div className="orbit">
-      <Imager ImageSource={university}   ImageClass='img1' style={customStyle[0]} />
-      <Imager ImageSource={government}  ImageClass='img2' style={customStyle[1]}
+      <Imager ImageSource={university} title="Universities"  ImageClass='img1' style={customStyle[0]} />
+      <Imager ImageSource={government} title='Governments' ImageClass='img2' style={customStyle[1]}
       //  onMouseOver={changeContent2} 
       //  onMouseLeave={handleMouseLeave}
        />
-      <Imager ImageSource={privatecomp}  ImageClass='img3' style={customStyle[2]} />
+      <Imager ImageSource={privatecomp} title='Private Companies' ImageClass='img3' style={customStyle[2]} />
      
       </div>
       <div className='content' >

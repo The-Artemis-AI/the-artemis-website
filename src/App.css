@@ -18,6 +18,10 @@ a {
 .section {
   height: auto;
   width: 100%;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
 }
 
 .section1 {
@@ -245,7 +249,7 @@ a {
  
   width:100%;
 
-  /* animation: scroll 20s linear infinite; */
+
 }
 .slider img:nth-child(3), .slider img:nth-child(5){
   transform:scale(.6);
@@ -357,13 +361,12 @@ animation-play-state:pause;
   height: 50px;
 }
 
+
 .sectionContent3 .rightContent,
 .sectionContent3 .leftContent {
   display: flex;
   gap: 30px;
   align-items:center;
-  justify-content:center;
-
 }
 
 .sectionContent3 .rightContent p,
@@ -1258,15 +1261,13 @@ button:hover {
   }
  
   .sectionContent3 {
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
+   display:block;
+  }
+  .sectionContent3 .leftContent {
+   padding-bottom:10px;
   }
 
- 
-  .sectionContent3 .rightContent{
-    margin-left:-15%;
-  }
+
 
 
 .circle-lines button { 
@@ -1509,9 +1510,6 @@ button:hover {
 } 
 
 
-.sectionContent3 .rightContent{
-  margin-left:5%;
-}
   }
 
 .headerContainer ul li a:hover{

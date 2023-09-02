@@ -1454,6 +1454,14 @@ button:hover {
 
 
 @media only screen and (max-width: 600px) {
+
+  .side button .arrow{
+    display:none;
+  }
+
+  .side button{
+    font-size:.8em;
+  }
   .success-words{
     width:100%;
   }
@@ -1561,6 +1569,9 @@ border-radius:4px;
   }
   .sectionContent1 {
     overflow-x:hidden;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
   }
   .side{
     width: 100%;
@@ -1568,14 +1579,24 @@ border-radius:4px;
   }
   .side button{
     font-size:.7em;
-    width:80%;
-    margin: 40px 10px 70px 0px ;
+    padding:10px ;
+    /* margin: 40px 10px 70px 0px ; */
+    text-align:center;
+    transform:translateY(-100%);
   }
   .side button .arrow{
     display:none;
   }
   .side h1 {
     font-size: 1.5em;
+    width:80%;
+  }
+
+  
+
+  .links {
+    left: 15px;
+    top: 50%;
   }
   .partners{
     overflow:show;
